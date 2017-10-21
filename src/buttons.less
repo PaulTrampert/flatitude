@@ -19,12 +19,17 @@
 
 button {
   font-family: 'Roboto', sans-serif;
+  font-weight: bold;
   border: none;
   font-size: 16px;
   padding: 10px 20px;
+  text-transform: uppercase;
   .button-states(@grey-a, black);
 
   &.primary {
     .button-states(@primary, @grey-e);
+  }
+  &.danger {
+    .button-states(@danger, @grey-e);
   }
 }
