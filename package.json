@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Global styles to use for personal projects",
   "main": "index.js",
+  "style": "./dist/flatitude.css",
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack"
