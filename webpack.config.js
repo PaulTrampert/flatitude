@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const SRC_DIR = path.resolve(__dirname, 'src');
 const DIST_DIR = path.resolve(__dirname, 'dist');
+const PROD = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: {
@@ -23,7 +24,7 @@ module.exports = {
           use: {
             loader: 'css-loader',
             options: {
-              minimize: true
+              minimize: PROD
             }
           }
         })
@@ -37,7 +38,7 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                minimize: true
+                minimize: PROD
               }
             },
             'less-loader'

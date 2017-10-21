@@ -1,0 +1,30 @@
+.button-states(@background-color, @color) {
+  background-color: @background-color;
+  color: @color;
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten(@background-color, 10%)
+  }
+
+  &:active {
+    cursor: pointer;
+    background-color: darken(@background-color, 10%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  .button-states(@grey-a, black);
+
+  &.primary {
+    .button-states(@primary, @grey-e);
+  }
+}
