@@ -1,0 +1,29 @@
+@keyframes collapse-vertical {
+  0% {
+    height: initial;
+  }
+
+  100% {
+    height: 0;
+  }
+}
+
+@keyframes collapse-horizontal {
+  0% {
+    height: initial;
+  }
+
+  100% {
+    height: 0;
+  }
+}
+
+.collapse-vertical {
+  animation: collapse-vertical 1s ease forwards;
+  overflow-y: hidden;
+}
+
+.collapse-horizontal {
+  animation: collapse-horizontal 1s ease forwards;
+  overflow-x: hidden;
+}

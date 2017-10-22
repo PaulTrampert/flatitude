@@ -1,0 +1,29 @@
+@keyframes expand-vertical {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: initial;
+  }
+}
+
+@keyframes expand-horizontal {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: initial;
+  }
+}
+
+.expand-vertical {
+  animation: expand-vertical 1s ease forwards;
+  overflow-y: hidden;
+}
+
+.expand-horizontal {
+  animation: expand-vertical 1s ease forwards;
+  overflow-x: hidden;
+}

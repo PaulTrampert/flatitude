@@ -18,7 +18,6 @@
 }
 
 button {
-  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   border: none;
   font-size: 16px;
@@ -31,5 +30,12 @@ button {
   }
   &.danger {
     .button-states(@danger, @grey-e);
+  }
+
+  &.transparent {
+    .button-states(transparent, inherit);
+    border-style: solid;
+    border-width: 1px;
+    border-color: currentColor;
   }
 }
