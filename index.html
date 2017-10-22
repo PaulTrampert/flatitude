@@ -49,8 +49,20 @@
     </div>
 
     <h2>Inputs</h2>
-    <div>
-      <input type="text" />
+    <div style="width: 400px">
+      <div class="input-group">
+        <label>Text Input</label>
+        <input type="text" class="valid" placeholder="Text Input" />
+      </div>
+      <div class="input-group invalid">
+        <label>Password Input</label>
+        <input type="password" placeholder="Password" />
+        <div class="help">Validation error</div>
+      </div>
+      <div class="input-group">
+          <label>Email Input</label>
+          <input type="email" placeholder="test@example.com" />
+      </div>
     </div>
   </main>
   <footer>Copyright 2017 - Paul Trampert</footer>
