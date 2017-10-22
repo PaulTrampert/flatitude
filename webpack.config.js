@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {dependencies, peerDependencies} = require('./package.json');
+const externals = Object.keys(dependencies || {}).concat(Object.keys(peerDependencies || {}));
 
 const SRC_DIR = path.resolve(__dirname, 'src');
 const DIST_DIR = path.resolve(__dirname, 'dist');
@@ -12,10 +15,29 @@ module.exports = {
   },
   output: {
     path: DIST_DIR,
-    filename: '[name].js'
+    filename: '[name].js',
+    library: 'flatitude',
+    libraryTarget: 'umd'
   },
+  externals,
   module: {
     rules: [
+      {
+        enforce: 'pre',
+        test: /\.jsx?$/,
+        include: SRC_DIR,
+        loader: 'eslint-loader',
+        options: {
+          fix: true
+        }
+      },
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: [
+          'babel-loader'
+        ]
+      },
       {
         test: /\.css$/,
         include: SRC_DIR,
@@ -55,6 +77,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['dist', 'doc']),
     new ExtractTextPlugin('[name].css')
   ]
 };

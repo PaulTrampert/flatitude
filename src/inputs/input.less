@@ -13,17 +13,26 @@ input {
     outline: none;
     border-bottom-color: lighten(@primary, 30%);
   }
-  &:invalid {
+  &.touched:invalid {
     border-bottom-color: @danger;
+  }
+
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: 'gonzocons' !important;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content:"\e913";
   }
 }
 
 .input-group {
   display: -ms-grid;
   display: grid;
-  -ms-grid-template-columns: 1fr 2fr;
   grid-template-columns: 1fr 2fr;
-  -ms-grid-template-rows: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "label input"

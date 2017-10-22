@@ -4,7 +4,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: lighten(@background-color, 10%)
+    background-color: lighten(@background-color, 10%);
   }
 
   &:active {
@@ -14,6 +14,37 @@
 
   &:focus {
     outline: none;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: lighten(@background-color, 20%);
+    color: lighten(@color, 10%);
+  }
+}
+
+.transparent-button-states(@color) {
+  background-color: rgba(0, 0, 0, 0);
+  color: @color;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .1);
+    opacity: 10%;
+  }
+
+  &:active {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .2);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: rgba(0, 0, 0, .2);
   }
 }
 
@@ -33,7 +64,7 @@ button {
   }
 
   &.transparent {
-    .button-states(transparent, inherit);
+    .transparent-button-states(currentColor);
     border-style: solid;
     border-width: 1px;
     border-color: currentColor;
