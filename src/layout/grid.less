@@ -1,7 +1,9 @@
+@nav-width: 300px;
+
 @media (min-width: 720px) {
   .app.left-nav {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: @nav-width 1fr;
     grid-template-rows: 50px 1fr 30px;
     grid-template-areas:
       "header header"
@@ -9,5 +11,34 @@
       "footer footer"
       ;
     height: 100%;
+    
+    nav {
+      a {
+        width: @nav-width - 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .app.right-nav {
+    display: grid;
+    grid-template-columns: 1fr @nav-width;
+    grid-template-rows: 50px 1fr 30px;
+    grid-template-areas:
+      "header header"
+      "main nav"
+      "footer footer"
+      ;
+    height: 100%;
+
+    nav {
+      text-align: right;
+      justify-content: right;
+
+      a {
+        width: @nav-width - 20px;
+      }
+    }
   }
 }

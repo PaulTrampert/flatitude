@@ -11,7 +11,7 @@ import Buttons from './Buttons.jsx';
 
 ReactDOM.render((
   <Router>
-    <div class="app left-nav">
+    <div class="app right-nav">
       <header>
         <h1>Flatitude</h1>
       </header>
