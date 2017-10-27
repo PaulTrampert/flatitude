@@ -4,7 +4,7 @@
   .app.left-nav {
     display: grid;
     grid-template-columns: @nav-width 1fr;
-    grid-template-rows: 50px 1fr 30px;
+    grid-template-rows: min-content 1fr 30px;
     grid-template-areas:
       "header header"
       "nav main"
@@ -24,7 +24,7 @@
   .app.right-nav {
     display: grid;
     grid-template-columns: 1fr @nav-width;
-    grid-template-rows: 50px 1fr 30px;
+    grid-template-rows: min-content 1fr 30px;
     grid-template-areas:
       "header header"
       "main nav"

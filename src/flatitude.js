@@ -1,6 +1,6 @@
 import './flatitude.less';
-import components from './components.js';
+import Button from './Button.jsx';
 
 export {
-  components as default
+  Button
 };

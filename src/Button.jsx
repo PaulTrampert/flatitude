@@ -13,7 +13,7 @@ Button.propTypes = {
   type: PropTypes.string,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
-  children: PropTypes.oneOf(PropTypes.node, PropTypes.arrayOf(PropTypes.node))
+  children: PropTypes.oneOf([PropTypes.node, PropTypes.arrayOf(PropTypes.node)])
 };
 
 Button.defaultProps = {

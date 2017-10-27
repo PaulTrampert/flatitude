@@ -9,7 +9,7 @@ const DOCS_DIR = path.resolve(__dirname, 'doc');
 webpackConfig.devtool = 'sourcemap'
 
 webpackConfig.entry =  {
-  docs: path.resolve(SRC_DIR, 'doc.js')
+  docs: path.resolve(SRC_DIR, 'index.js')
 };
 
 webpackConfig.output = {
