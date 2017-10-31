@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../src/Button.jsx';
 
 function Buttons() {
   return (
@@ -7,18 +6,18 @@ function Buttons() {
       <h1>Buttons</h1>
       <h2>Default</h2>
       <div style={{display: 'inline'}}>
-        <Button>Default</Button>
-        <Button disabled={true}>Disabled</Button>
+        <button>Default</button>
+        <button disabled={true}>Disabled</button>
       </div>
       <h2>Primary</h2>
       <div style={{display: 'inline'}}>
-        <Button type="primary">Primary</Button>
-        <Button type="primary" disabled={true}>Disabled</Button>
+        <button className="primary">Primary</button>
+        <button className="primary" disabled={true}>Disabled</button>
       </div>
       <h2>Danger</h2>
       <div style={{display: 'inline'}}>
-        <Button type="danger">Danger</Button>
-        <Button type="danger" disabled={true}>Disabled</Button>
+        <button className="danger">Danger</button>
+        <button className="danger" disabled={true}>Disabled</button>
       </div>
     </div>
   )
