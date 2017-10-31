@@ -4,7 +4,6 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import {Button} from '../src/flatitude.js';
 import Home from './Home.jsx';
 import Buttons from './Buttons.jsx';
 
@@ -38,7 +37,7 @@ class App extends React.Component {
         <div className={`app ${navTypes[this.state.navType]}`}>
           <header>
             <h1>Flatitude</h1>
-            <Button type="transparent" onClick={() => this.cycleNavType()}>{navTypes[this.state.navType]}</Button>
+            <button className="transparent" onClick={() => this.cycleNavType()}>{navTypes[this.state.navType]}</button>
           </header>
           <nav>
             <Link to="/">Home</Link>
