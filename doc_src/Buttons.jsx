@@ -19,6 +19,12 @@ function Buttons() {
         <button className="danger">Danger</button>
         <button className="danger" disabled={true}>Disabled</button>
       </div>
+
+      <h2>Not Technically a Button</h2>
+      <div style={{display: 'inline'}}>
+        <a className="btn">Link</a>
+        <a className="btn" disabled={true}>Link</a>
+      </div>
     </div>
   )
 }
