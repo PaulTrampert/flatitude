@@ -20,7 +20,6 @@ webpackConfig.output = {
 webpackConfig.devServer = {
   contentBase: DOCS_DIR,
   hot: true,
-  historyApiFallback: true
 };
 
 webpackConfig.plugins.push(new HtmlWebpackPlugin({
