@@ -24,14 +24,12 @@ class App extends React.Component {
     this.state = {
       navType: 0,
       navCollapsed: true,
-      navCollapsedAnimated: false
     };
   }
 
   setNavCollapsed(navCollapsed) {
     this.setState({
-      navCollapsed,
-      navCollapsedAnimated: true
+      navCollapsed
     });
   }
 
@@ -52,7 +50,7 @@ class App extends React.Component {
             <button className="transparent" onClick={() => this.cycleNavType()}>{navTypes[this.state.navType]}</button>
             <button className="transparent nav-toggle" onClick={() => this.setNavCollapsed(!this.state.navCollapsed)}><i className="icon-hamburger"></i></button>
           </header>
-          <Nav collapsed={this.state.navCollapsed} animated={this.state.navCollapsedAnimated}>
+          <Nav collapsed={this.state.navCollapsed}>
             <Link to="/">Home</Link>
             <Link to="/buttons">Buttons</Link>
           </Nav>

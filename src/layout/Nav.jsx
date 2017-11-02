@@ -11,15 +11,16 @@ class Nav extends React.Component {
   render() {
     let {
       children,
-      collapsed,
-      animated
+      collapsed
     } = this.props;
     let classes = [];
     let style = {};
     if (collapsed) {
       classes.push('collapsed');
       style.height = 0;
-    } else if (animated && this.element) {
+      style.minHeight = 0;
+    } else if (this.element) {
+      style.minHeight = this.element.scrollHeight;
       style.height = this.element.scrollHeight;
     }
 
