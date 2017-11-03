@@ -58,9 +58,6 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route path="/buttons" component={Buttons} />
           </main>
-          <footer>
-            Copyright 2017 - Paul Trampert
-          </footer>
         </div>
       </Router>
     );
