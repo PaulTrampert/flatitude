@@ -1,7 +1,7 @@
 @nav-width: 300px;
 
 @media (min-width: @transition-width) {
-  .app.left-nav {
+  &.left-nav {
     display: grid;
     grid-template-columns: @nav-width 1fr;
     grid-template-rows: min-content 1fr;
@@ -23,7 +23,7 @@
 }
 
 @media (min-width: @transition-width) {
-  .app.right-nav {
+  &.right-nav {
     display: grid;
     grid-template-columns: 1fr @nav-width;
     grid-template-rows: min-content 1fr;

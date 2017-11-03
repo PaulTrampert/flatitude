@@ -1,40 +1,38 @@
-.app {
-  nav {
-    grid-area: nav;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    overflow: hidden;
-    text-align: center;
+nav {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: hidden;
+  text-align: center;
 
-    background-color: @grey-2;
+  background-color: @grey-2;
+  color: @grey-d;
+  font-size: 20px;
+
+  a {
+    margin: 0;
+    padding: 10px 10px;
+    text-decoration: none;
     color: @grey-d;
-    font-size: 20px;
 
-    a {
-      margin: 0;
-      padding: 10px 10px;
-      text-decoration: none;
+    &.current {
+      background-color: @grey-4;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: @grey-4;
+    }
+
+    &:visited {
       color: @grey-d;
-
-      &.current {
-        background-color: @grey-4;
-      }
-
-      &:hover {
-        cursor: pointer;
-        background-color: @grey-4;
-      }
-
-      &:visited {
-        color: @grey-d;
-      }
     }
+  }
 
-    hr {
-      width: 95%;
-      border-color: @grey-4
-    }
+  hr {
+    width: 95%;
+    border-color: @grey-4
   }
 }
