@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const {dependencies, peerDependencies} = require('./package.json');
 const externals = Object.keys(dependencies || {}).concat(Object.keys(peerDependencies || {}));
 
@@ -77,7 +76,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist', 'doc']),
     new ExtractTextPlugin('[name].css')
   ]
 };

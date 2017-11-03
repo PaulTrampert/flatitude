@@ -50,9 +50,11 @@ class App extends React.Component {
             <button className="transparent" onClick={() => this.cycleNavType()}>{navTypes[this.state.navType]}</button>
             <button className="transparent nav-toggle" onClick={() => this.setNavCollapsed(!this.state.navCollapsed)}><i className="icon-hamburger"></i></button>
           </header>
-          <Nav collapsed={this.state.navCollapsed}>
+          <Nav collapsed={this.state.navCollapsed} onRequestCollapse={() => this.setNavCollapsed(true)}>
             <Link to="/">Home</Link>
             <Link to="/buttons">Buttons</Link>
+            <hr/>
+            <a href="https://github.com/PaulTrampert/flatitude" target="_blank">GitHub <i className="icon-url"></i></a>
           </Nav>
           <main>
             <Route exact path="/" component={Home} />

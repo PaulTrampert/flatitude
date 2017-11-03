@@ -11,9 +11,15 @@
       ;
     height: 100%;
 
-    nav.collapsed {
-      height: initial!important;
+
+
+    nav{
       text-align: left;
+
+      &.collapsed {
+        height: initial!important;
+        text-align: left;
+      }
     }
 
     .nav-toggle {
@@ -33,9 +39,12 @@
       ;
     height: 100%;
     
-    nav.collapsed {
-      height: initial!important;
+    nav{
       text-align: right;
+      &.collapsed {
+        height: initial!important;
+        text-align: right;
+      }
     }
 
     .nav-toggle {
