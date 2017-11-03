@@ -19,9 +19,10 @@ class Nav extends React.Component {
   render() {
     let {
       children,
-      collapsed
+      collapsed,
+      className
     } = this.props;
-    let classes = [];
+    let classes = [className];
 
     if (collapsed) {
       classes.push('collapsed');
@@ -32,7 +33,7 @@ class Nav extends React.Component {
         {
           React.Children.map(children, child => {
             if (child.type !== "hr") {
-              return React.cloneElement(child, {onClick: (e) => this.handleNavItemClick(child.onClick, e)});
+              return React.cloneElement(child, {onClick: (e) => this.handleNavItemClick(child.props.onClick, e)});
             }
             else {
               return React.cloneElement(child);
@@ -47,6 +48,7 @@ class Nav extends React.Component {
 Nav.propTypes = {
   children: PropTypes.node,
   collapsed: PropTypes.bool,
+  className: PropTypes.string,
   onRequestCollapse: PropTypes.func
 };
 
