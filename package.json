@@ -7,7 +7,9 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.demo.config.js",
     "build": "webpack",
-    "build-docs": "webpack --config webpack.demo.config.js"
+    "build-docs": "webpack --config webpack.demo.config.js",
+    "test": "karma start",
+    "test-ci": "karma start --single-run --reporters junit,mocha"
   },
   "keywords": [
     "styles"
@@ -26,6 +28,7 @@
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
     "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.3",
     "eslint": "^4.9.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.4.0",
@@ -36,6 +39,8 @@
     "jasmine-core": "^2.8.0",
     "jasmine-enzyme": "^4.0.1",
     "karma": "^1.7.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-junit-reporter": "^1.2.0",
     "karma-mocha-reporter": "^2.2.5",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-sourcemap-loader": "^0.3.7",
@@ -53,8 +58,9 @@
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3"
   },
-  "peerDependencies": {
+  "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "prop-types": "^15.6.0"

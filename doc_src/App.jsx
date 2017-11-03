@@ -4,6 +4,9 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import {
+  Nav
+} from '../src/flatitude.js';
 import Home from './Home.jsx';
 import Buttons from './Buttons.jsx';
 
@@ -19,8 +22,15 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      navType: 0
+      navType: 0,
+      navCollapsed: true,
     };
+  }
+
+  setNavCollapsed(navCollapsed) {
+    this.setState({
+      navCollapsed
+    });
   }
 
   cycleNavType() {
@@ -38,18 +48,18 @@ class App extends React.Component {
           <header>
             <h1>Flatitude</h1>
             <button className="transparent" onClick={() => this.cycleNavType()}>{navTypes[this.state.navType]}</button>
+            <button className="transparent nav-toggle" onClick={() => this.setNavCollapsed(!this.state.navCollapsed)}><i className="icon-hamburger"></i></button>
           </header>
-          <nav>
+          <Nav collapsed={this.state.navCollapsed} onRequestCollapse={() => this.setNavCollapsed(true)}>
             <Link to="/">Home</Link>
             <Link to="/buttons">Buttons</Link>
-          </nav>
+            <hr/>
+            <a href="https://github.com/PaulTrampert/flatitude" target="_blank">GitHub <i className="icon-url"></i></a>
+          </Nav>
           <main>
             <Route exact path="/" component={Home} />
             <Route path="/buttons" component={Buttons} />
           </main>
-          <footer>
-            Copyright 2017 - Paul Trampert
-          </footer>
         </div>
       </Router>
     );

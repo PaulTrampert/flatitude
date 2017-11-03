@@ -2,17 +2,19 @@ nav {
   grid-area: nav;
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: flex-start;
   align-items: stretch;
   overflow: hidden;
-
-  &.collapsed {
-    height: 0;
-  }
+  text-align: center;
 
   background-color: @grey-2;
   color: @grey-d;
   font-size: 20px;
+
+  &.collapsed {
+    height: 0;
+    min-height: 0;
+  }
 
   a {
     margin: 0;
