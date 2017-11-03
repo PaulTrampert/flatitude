@@ -43,6 +43,10 @@ module.exports = function(config) {
     mochaReporter: {
       output: 'minimal'
     },
+    junitReporter: {
+      outputDir: 'testReports',
+      useBrowserName: false
+    },
 
     // web server port
     port: 9876,

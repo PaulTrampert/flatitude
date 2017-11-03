@@ -8,7 +8,8 @@
     "start": "webpack-dev-server --config webpack.demo.config.js",
     "build": "webpack",
     "build-docs": "webpack --config webpack.demo.config.js",
-    "test": "karma start"
+    "test": "karma start",
+    "test-ci": "karma start --single-run --reporters junit,mocha"
   },
   "keywords": [
     "styles"
@@ -38,6 +39,7 @@
     "jasmine-enzyme": "^4.0.1",
     "karma": "^1.7.1",
     "karma-jasmine": "^1.1.0",
+    "karma-junit-reporter": "^1.2.0",
     "karma-mocha-reporter": "^2.2.5",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-sourcemap-loader": "^0.3.7",
