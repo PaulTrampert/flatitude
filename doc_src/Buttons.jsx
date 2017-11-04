@@ -25,6 +25,51 @@ function Buttons() {
         <a className="btn">Link</a>
         <a className="btn" disabled={true}>Link</a>
       </div>
+      <h2>Not Technically a Button</h2>
+      <div style={{display: 'inline'}}>
+        <a className="btn">Link</a>
+        <a className="btn" disabled={true}>Link</a>
+      </div>
+      <h2>Not Technically a Button</h2>
+      <div style={{display: 'inline'}}>
+        <a className="btn">Link</a>
+        <a className="btn" disabled={true}>Link</a>
+      </div>
+      <h2>Not Technically a Button</h2>
+      <div style={{display: 'inline'}}>
+        <a className="btn">Link</a>
+        <a className="btn" disabled={true}>Link</a>
+      </div>
+      <h2>Not Technically a Button</h2>
+      <div style={{display: 'inline'}}>
+        <a className="btn">Link</a>
+        <a className="btn" disabled={true}>Link</a>
+      </div>
+      <h2>Not Technically a Button</h2>
+      <div style={{display: 'inline'}}>
+        <a className="btn">Link</a>
+        <a className="btn" disabled={true}>Link</a>
+      </div>
+      <h2>Not Technically a Button</h2>
+      <div style={{display: 'inline'}}>
+        <a className="btn">Link</a>
+        <a className="btn" disabled={true}>Link</a>
+      </div>
+      <h2>Not Technically a Button</h2>
+      <div style={{display: 'inline'}}>
+        <a className="btn">Link</a>
+        <a className="btn" disabled={true}>Link</a>
+      </div>
+      <h2>Not Technically a Button</h2>
+      <div style={{display: 'inline'}}>
+        <a className="btn">Link</a>
+        <a className="btn" disabled={true}>Link</a>
+      </div>
+      <h2>Not Technically a Button</h2>
+      <div style={{display: 'inline'}}>
+        <a className="btn">Link</a>
+        <a className="btn" disabled={true}>Link</a>
+      </div>
     </div>
   )
 }

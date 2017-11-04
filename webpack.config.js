@@ -45,7 +45,8 @@ module.exports = {
           use: {
             loader: 'css-loader',
             options: {
-              minimize: PROD
+              minimize: PROD,
+              sourcemap: true
             }
           }
         })
@@ -59,7 +60,8 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                minimize: PROD
+                minimize: PROD,
+                sourcemap: true,
               }
             },
             'less-loader'
