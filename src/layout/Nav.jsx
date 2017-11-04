@@ -24,12 +24,16 @@ class Nav extends React.Component {
     } = this.props;
     let classes = [className];
 
+    let style = {};
     if (collapsed) {
       classes.push('collapsed');
     }
+    else if (this.nav) {
+      style.height = this.nav.scrollHeight;
+    }
 
     return (
-      <nav className={classnames(classes)} {...getPassthroughProps(this)}>
+      <nav ref={nav => this.nav = nav} className={classnames(classes)} style={style} {...getPassthroughProps(this)}>
         {
           React.Children.map(children, child => {
             if (child.type !== "hr") {
