@@ -8,6 +8,7 @@ import {
   Nav
 } from '../src/flatitude.js';
 import Home from './Home.jsx';
+import Typography from './Typography.jsx';
 import Buttons from './Buttons.jsx';
 
 let navTypes = [
@@ -52,12 +53,14 @@ class App extends React.Component {
           </header>
           <Nav collapsed={this.state.navCollapsed} onRequestCollapse={() => this.setNavCollapsed(true)}>
             <Link to="/">Home</Link>
+            <Link to="/typography">Typography</Link>
             <Link to="/buttons">Buttons</Link>
             <hr/>
             <a href="https://github.com/PaulTrampert/flatitude" target="_blank">GitHub <i className="icon-url"></i></a>
           </Nav>
           <main>
             <Route exact path="/" component={Home} />
+            <Route path="/typography" component={Typography} />
             <Route path="/buttons" component={Buttons} />
           </main>
         </div>
