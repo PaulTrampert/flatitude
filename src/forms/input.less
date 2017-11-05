@@ -1,0 +1,88 @@
+.focus-active(@color) {
+  &:focus,
+  &:active {
+    outline-color: lighten(@color, 30%);
+    border-color: lighten(@color, 30%);
+  }
+}
+
+label {
+  font-size: @label-font-size;
+}
+
+input {
+  border: 1px solid @grey-3;
+  border-radius: 2px;
+  font-size: @input-font-size;
+
+  .focus-active(@primary);
+
+  &.touched:invalid {
+    border-color: @danger;
+  }
+
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: 'gonzocons' !important;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content:"\e913";
+  }
+}
+
+.input-group {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "label input"
+    "none help"
+  ;
+  margin: 20px 0;
+  max-width: 500px;
+
+  label {
+    grid-area: label;
+    font-weight: bold;
+    text-align: right;
+    margin-right: @input-margin;
+  }
+
+  input {
+    grid-area: input;
+    text-align: left;
+    margin-left: @input-margin;
+    margin-bottom: @input-margin;
+  }
+
+  .help {
+    grid-area: help;
+    color: @grey-7;
+    margin-left: @input-margin;
+  }
+
+  &.invalid {
+    label {
+      color: @danger;
+    }
+
+    input {
+      border-color: @danger;
+      .focus-active(@danger);
+    }
+
+    .help {
+      color: @danger;
+
+      &::before {
+        .fa-icon();
+        content: @fa-var-exclamation-triangle;
+        margin-right: 10px;
+      }
+    }
+  }
+}
