@@ -1,12 +1,11 @@
-@input-margin: 10px;
 label {
-  font-size: 16px;
+  font-size: @label-font-size;
 }
 
 input {
   border: none;
-  border-bottom: solid 2px @grey-3;
-  font-size: 16px;
+  border-bottom: solid 1px @grey-3;
+  font-size: @input-font-size;
 
   &:focus,
   &:active {
@@ -39,6 +38,7 @@ input {
     "none help"
   ;
   margin: 20px 0;
+  max-width: 500px;
 
   label {
     grid-area: label;

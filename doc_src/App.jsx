@@ -10,6 +10,7 @@ import {
 import Home from './Home.jsx';
 import Typography from './Typography.jsx';
 import Buttons from './Buttons.jsx';
+import Forms from './Forms.jsx';
 
 let navTypes = [
   'left-nav',
@@ -55,6 +56,7 @@ class App extends React.Component {
             <Link to="/" exact activeClassName="current">Home</Link>
             <Link to="/typography" activeClassName="current">Typography</Link>
             <Link to="/buttons" activeClassName="current">Buttons</Link>
+            <Link to="/forms" activeClassName="current">Forms</Link>
             <hr/>
             <a href="https://github.com/PaulTrampert/flatitude" target="_blank">GitHub <i className="icon-url"></i></a>
           </Nav>
@@ -62,6 +64,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route path="/typography" component={Typography} />
             <Route path="/buttons" component={Buttons} />
+            <Route path="/forms" component={Forms} />
           </main>
         </div>
       </Router>
