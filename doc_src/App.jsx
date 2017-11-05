@@ -47,7 +47,7 @@ class App extends React.Component {
       <Router>
         <div className={`app ${navTypes[this.state.navType]}`}>
           <header>
-            <h1>Flatitude</h1>
+            <h3>Flatitude</h3>
             <button className="transparent" onClick={() => this.cycleNavType()}>{navTypes[this.state.navType]}</button>
             <button className="transparent nav-toggle" onClick={() => this.setNavCollapsed(!this.state.navCollapsed)}><i className="icon-hamburger"></i></button>
           </header>
