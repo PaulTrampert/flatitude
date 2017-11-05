@@ -13,7 +13,7 @@ function Forms() {
       <div className="input-group invalid">
         <label>Field Name</label>
         <input />
-        <div className="help">This field is invalid</div>
+        <div className="help"><i className="fa fa-exclamation-triangle"></i> This field is invalid</div>
       </div>
     </div>
   );
