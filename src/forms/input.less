@@ -63,10 +63,6 @@ input {
     grid-area: help;
     color: @grey-7;
     margin-left: @input-margin;
-
-    .fa {
-      float: right;
-    }
   }
 
   &.invalid {
@@ -81,6 +77,12 @@ input {
 
     .help {
       color: @danger;
+
+      &::before {
+        .fa-icon();
+        content: @fa-var-exclamation-triangle;
+        margin-right: 10px;
+      }
     }
   }
 }

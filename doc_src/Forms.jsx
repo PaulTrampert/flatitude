@@ -6,14 +6,14 @@ function Forms() {
       <h1>Forms</h1>
       <h2>Basic Inputs</h2>
       <div className="input-group">
-        <label>Field Name</label>
+        <label>Basic Input</label>
         <input />
         <div className="help">This is a basic form field</div>
       </div>
       <div className="input-group invalid">
-        <label>Field Name</label>
+        <label>Invalid Input</label>
         <input />
-        <div className="help"><i className="fa fa-exclamation-triangle"></i> This field is invalid</div>
+        <div className="help">This field is invalid</div>
       </div>
     </div>
   );
