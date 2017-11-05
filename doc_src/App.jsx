@@ -2,7 +2,7 @@ import React from 'react';
 import {
   HashRouter as Router,
   Route,
-  Link
+  NavLink as Link
 } from 'react-router-dom';
 import {
   Nav
@@ -52,9 +52,9 @@ class App extends React.Component {
             <button className="transparent nav-toggle" onClick={() => this.setNavCollapsed(!this.state.navCollapsed)}><i className="icon-hamburger"></i></button>
           </header>
           <Nav collapsed={this.state.navCollapsed} onRequestCollapse={() => this.setNavCollapsed(true)}>
-            <Link to="/">Home</Link>
-            <Link to="/typography">Typography</Link>
-            <Link to="/buttons">Buttons</Link>
+            <Link to="/" exact activeClassName="current">Home</Link>
+            <Link to="/typography" activeClassName="current">Typography</Link>
+            <Link to="/buttons" activeClassName="current">Buttons</Link>
             <hr/>
             <a href="https://github.com/PaulTrampert/flatitude" target="_blank">GitHub <i className="icon-url"></i></a>
           </Nav>
