@@ -39,7 +39,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: SRC_DIR,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: {

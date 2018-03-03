@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import {
   Nav
-} from '../src/flatitude.js';
+} from '../index.js';
 import Home from './Home.jsx';
 import Typography from './Typography.jsx';
 import Buttons from './Buttons.jsx';
