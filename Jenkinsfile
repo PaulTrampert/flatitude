@@ -23,7 +23,6 @@ pipeline {
         sh 'npm run test-ci'
       }
     }
-    
   }
   
   post {
@@ -31,7 +30,7 @@ pipeline {
       mail to: 'paul.trampert@gmail.com', subject: "Build status of ${env.JOB_NAME} changed to ${currentBuild.result}", body: "Build log may be found at ${env.BUILD_URL}"
     }
     always {
-      archiveArtifacts 'dist/**/*'
+      archiveArtifacts artifacts: './**/*', excludes: 'node_modules/**/*, doc_src/**/*, doc/**/*'
       step(
 				[
 					$class: 'XUnitBuilder', 
