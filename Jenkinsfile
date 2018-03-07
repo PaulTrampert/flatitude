@@ -9,13 +9,15 @@ pipeline {
 
   stages {
 		stage('Generate Release Info') {
-			script {
-				releaseInfo = generateGithubReleaseInfo(
-                            'PaulTrampert',
-                            'flatitude',
-                            'v',
-                            'github_token'
-                    )
+			steps {
+				script {
+					releaseInfo = generateGithubReleaseInfo(
+															'PaulTrampert',
+															'flatitude',
+															'v',
+															'github_token'
+											)
+				}
 			}
 		}
 
