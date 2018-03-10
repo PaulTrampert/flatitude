@@ -1,0 +1,5 @@
+doc/
+doc_src/
+testReports/
+Jenkinsfile
+webpack.demo.config.js
