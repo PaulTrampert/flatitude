@@ -9,7 +9,7 @@
     "build": "webpack",
     "build-docs": "webpack --config webpack.demo.config.js",
     "test": "karma start",
-    "test-ci": "karma start --single-run --reporters junit,mocha"
+    "test-ci": "karma start --single-run --reporters junit"
   },
   "keywords": [
     "styles"
