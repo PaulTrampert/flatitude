@@ -1,3 +1,5 @@
+def releaseInfo
+
 pipeline {
   agent any;
 
@@ -6,6 +8,20 @@ pipeline {
   }
 
   stages {
+		stage('Build Release Info') {
+			steps {
+				releaseInfo = generateGithubReleaseInfo(
+					'PaulTrampert',
+					'flatitude',
+					'v',
+					'github_token'
+				)
+
+				echo releaseInfo.nextVersion().toString()
+				echo releaseInfo.changelogToMarkdown()
+			}
+		}
+
     stage('Restore') {
       steps {
         sh 'npm install'
