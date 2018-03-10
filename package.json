@@ -4,6 +4,10 @@
   "description": "Global styles to use for personal projects",
   "main": "index.js",
   "style": "./dist/flatitude.css",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/PaulTrampert/flatitude.git"
+  },
   "scripts": {
     "start": "webpack-dev-server --config webpack.demo.config.js",
     "build": "webpack",
