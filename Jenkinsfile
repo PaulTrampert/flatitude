@@ -41,6 +41,28 @@ pipeline {
         sh 'npm run test-ci'
       }
     }
+
+		stage('Publish') {
+			when {
+				expression {env.BRANCH_NAME == 'master'}
+			}
+
+			steps {
+				script {
+					def packageJson = readJSON file: 'package.json'
+					packageJson.version = releaseInfo.nextVersion().toString()
+					writeJSON file: 'package.json', json: packageJson, pretty: 2
+				}
+				sh 'npm publish'
+				publishGithubRelease(
+					'PaulTrampert'
+					'flatitude',
+					releaseInfo,
+					'v',
+					'github_token'
+				)
+			}
+		}
   }
   
   post {
