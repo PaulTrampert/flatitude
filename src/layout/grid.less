@@ -13,11 +13,16 @@
 
 
       nav{
+        position: inherit;
         text-align: left;
 
         &.collapsed {
-          height: initial!important;
+          width: initial!important;
           text-align: left;
+        }
+
+        .collapse-button {
+          display: none;
         }
       }
 
@@ -39,10 +44,15 @@
       height: 100%;
       
       nav{
+        position: inherit;
         text-align: right;
         &.collapsed {
-          height: initial!important;
+          width: initial!important;
           text-align: right;
+        }
+
+        .collapse-button {
+          display:none;
         }
       }
 
