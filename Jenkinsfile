@@ -9,6 +9,10 @@ pipeline {
 
   stages {
 		stage('Build Release Info') {
+			when {
+				expression {env.BRANCH_NAME == 'master'}
+			}
+			
 			steps {
 				script{
 					releaseInfo = generateGithubReleaseInfo(
