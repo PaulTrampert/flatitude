@@ -1,6 +1,5 @@
 import './flatitude.less';
-import Nav from './layout/Nav.jsx';
+import * as def from './modules.js';
 
-export {
-  Nav
-};
+export * from './modules.js';
+export default def;
