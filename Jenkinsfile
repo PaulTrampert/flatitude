@@ -55,7 +55,7 @@ pipeline {
 				}
 				sh 'npm publish'
 				publishGithubRelease(
-					'PaulTrampert'
+					'PaulTrampert',
 					'flatitude',
 					releaseInfo,
 					'v',
