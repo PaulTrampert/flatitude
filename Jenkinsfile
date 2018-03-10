@@ -10,15 +10,17 @@ pipeline {
   stages {
 		stage('Build Release Info') {
 			steps {
-				releaseInfo = generateGithubReleaseInfo(
-					'PaulTrampert',
-					'flatitude',
-					'v',
-					'github_token'
-				)
+				script{
+					releaseInfo = generateGithubReleaseInfo(
+						'PaulTrampert',
+						'flatitude',
+						'v',
+						'github_token'
+					)
 
-				echo releaseInfo.nextVersion().toString()
-				echo releaseInfo.changelogToMarkdown()
+					echo releaseInfo.nextVersion().toString()
+					echo releaseInfo.changelogToMarkdown()
+				}
 			}
 		}
 
