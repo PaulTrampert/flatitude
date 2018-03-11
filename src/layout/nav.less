@@ -19,13 +19,13 @@ nav {
   font-size: 20px;
 
   width: @nav-width;
-  transition: width 1s;
+  transition: 0.5s ease-in-out;
 
   &.collapsed {
-    width: 0;
     overflow-x: hidden;
     overflow-y: auto;
     text-overflow: clip;
+    transform: translateX(@nav-width);
   }
 
   a {
