@@ -35,6 +35,9 @@ function Typography() {
         <dt>Term</dt>
         <dd>Definition</dd>
       </dl>
+
+      <h2>Links</h2>
+      <a href="">Link</a><br/>
     </div>
   );
 }
