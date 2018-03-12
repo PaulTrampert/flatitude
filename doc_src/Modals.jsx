@@ -23,6 +23,7 @@ class Modals extends React.Component {
         {
           this.state.showModal &&
           <Modal>
+            <Modal.Header title="Test Modal" showClose={true} onClose={this.toggleModal}/>
           </Modal>
         }
       </div>
