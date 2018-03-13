@@ -6,11 +6,12 @@ import {
 } from 'react-router-dom';
 import {
   Nav
-} from '../index.js';
+} from '../src/flatitude.js';
 import Home from './Home.jsx';
 import Typography from './Typography.jsx';
 import Buttons from './Buttons.jsx';
 import Forms from './Forms.jsx';
+import Modals from './Modals.jsx';
 
 let navTypes = [
   'left-nav',
@@ -57,6 +58,7 @@ class App extends React.Component {
             <Link to="/typography" activeClassName="current">Typography</Link>
             <Link to="/buttons" activeClassName="current">Buttons</Link>
             <Link to="/forms" activeClassName="current">Forms</Link>
+            <Link to="/modals" activeClassName="current">Modals</Link>
             <hr/>
             <a href="https://github.com/PaulTrampert/flatitude" target="_blank">GitHub <i className="fa fa-external-link"></i></a>
           </Nav>
@@ -65,6 +67,7 @@ class App extends React.Component {
             <Route path="/typography" component={Typography} />
             <Route path="/buttons" component={Buttons} />
             <Route path="/forms" component={Forms} />
+            <Route path="/modals" component={Modals} />
           </main>
         </div>
       </Router>

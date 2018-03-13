@@ -1,25 +1,37 @@
 nav {
   grid-area: nav;
+  
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  overflow: hidden;
-  text-align: center;
+  overflow-y: auto;
+  text-align: right;
 
   background-color: @nav-background-color;
   color: @nav-color;
   font-size: 20px;
 
-  transition: height 1s;
+  width: @nav-width;
+  transition: 0.5s ease-in-out;
 
   &.collapsed {
-    height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-overflow: clip;
+    transform: translateX(@nav-width);
   }
 
   a {
     margin: 0;
     padding: 10px 10px;
+    overflow-x: hidden;
     text-decoration: none;
     color: @nav-color;
 
