@@ -9,6 +9,7 @@ const DIST_DIR = path.resolve(__dirname, 'dist');
 const PROD = process.env.NODE_ENV === 'production';
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     flatitude: path.resolve(SRC_DIR, 'flatitude.js')
   },
