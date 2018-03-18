@@ -15,7 +15,7 @@ class Button extends React.Component {
       <button className={classnames([type, className])} {...rest}>
         {children}
       </button>
-    )
+    );
   }
 }
 
@@ -23,6 +23,6 @@ Button.propTypes = {
   className: PropTypes.string,
   type: PropTypes.oneOf(['primary', 'danger']),
   children: PropTypes.node
-}
+};
 
 export default Button;
