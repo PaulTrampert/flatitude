@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Button from './Button.jsx';
 import ButtonTypes from './ButtonTypes.js';
 import window from '../util/window.js';
+import document from '../util/document.js';
 import RenderInBody from '../util/RenderInBody.jsx';
 
 class DropdownButton extends React.Component {
@@ -17,7 +18,17 @@ class DropdownButton extends React.Component {
   }
 
   componentDidMount = () => {
+    document.addEventListener('click', this.handleClickOutside);
+  }
 
+  componentWillUnmount = () => {
+    document.removeEventListener('click', this.handleClickOutside);
+  }
+
+  handleClickOutside = (event) => {
+    if (this.buttonElement && !this.buttonElement.contains(event.target)) {
+      this.closeMenu();
+    }
   }
 
   openMenu = () => {
@@ -30,8 +41,8 @@ class DropdownButton extends React.Component {
 
   setButtonRef = (ref) => {
     if (ref) {
-      let buttonElement = ReactDOM.findDOMNode(ref);
-      let boundingRect = buttonElement.getBoundingClientRect();
+      this.buttonElement = ReactDOM.findDOMNode(ref);
+      let boundingRect = this.buttonElement.getBoundingClientRect();
       this.menuStyle = {
         position: 'absolute',
         top: boundingRect.bottom + window.scrollY,
@@ -60,7 +71,7 @@ class DropdownButton extends React.Component {
         onClick={this.openMenu} 
         {...rest}
       >
-        {title} <i className="fa fa-caret-down"></i>
+        {title}&nbsp; <i className="fa fa-caret-down"></i>
         {
           isOpen &&
           <RenderInBody>
