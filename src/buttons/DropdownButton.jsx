@@ -19,7 +19,15 @@ class DropdownButton extends React.Component {
 
   componentDidMount = () => {
     document.addEventListener('click', this.handleClickOutside);
-
+    if (this.button) {
+      let buttonElement = ReactDOM.findDOMNode(this.button);
+      let boundingRect = buttonElement.getBoundingClientRect();
+      this.menuStyle = {
+        position: 'absolute',
+        top: boundingRect.bottom + window.scrollY,
+        right: window.outerWidth - (boundingRect.right + window.scrollX)
+      };
+    }
   }
 
   componentWillUnmount = () => {
@@ -43,21 +51,6 @@ class DropdownButton extends React.Component {
   setButtonRef = (ref) => {
     if (ref) {
       this.button = ref;
-    }
-  }
-
-  get menuStyle() {
-    if (this.button) {
-      let buttonElement = ReactDOM.findDOMNode(this.button);
-      let boundingRect = buttonElement.getBoundingClientRect();
-      return {
-        position: 'absolute',
-        top: boundingRect.bottom + window.scrollY,
-        right: window.outerWidth - (boundingRect.right + window.scrollX)
-      };
-    }
-    else {
-      return null;
     }
   }
 
