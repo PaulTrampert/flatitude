@@ -11,6 +11,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.demo.config.js",
     "build": "webpack",
+    "build-watch": "webpack --watch",
     "build-docs": "webpack --config webpack.demo.config.js",
     "test": "karma start",
     "test-ci": "karma start --single-run --reporters junit"
