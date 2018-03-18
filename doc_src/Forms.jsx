@@ -13,7 +13,10 @@ function Forms() {
       <div className="input-group invalid">
         <label>Invalid Input</label>
         <input />
-        <div className="help">This field is invalid</div>
+        <div className="help">
+          <div className="error">This field is invalid</div>
+          <div className="error">Another error</div>
+        </div>
       </div>
     </div>
   );
