@@ -40,14 +40,18 @@ class DropdownButton extends React.Component {
   }
 
   setButtonRef = (ref) => {
-    if (ref) {
-      this.buttonElement = ReactDOM.findDOMNode(ref);
-      let boundingRect = this.buttonElement.getBoundingClientRect();
-      this.menuStyle = {
-        position: 'absolute',
-        top: boundingRect.bottom + window.scrollY,
-        right: window.outerWidth - (boundingRect.right + window.scrollX)
-      };
+    try {
+      if (ref) {
+        this.buttonElement = ReactDOM.findDOMNode(ref);
+        let boundingRect = this.buttonElement.getBoundingClientRect();
+        this.menuStyle = {
+          position: 'absolute',
+          top: boundingRect.bottom + window.scrollY,
+          right: window.outerWidth - (boundingRect.right + window.scrollX)
+        };
+      }
+    } catch (e) {
+      console.error(e);
     }
   }
 
