@@ -35,7 +35,7 @@ class DropdownButton extends React.Component {
   }
 
   handleClickOutside = (event) => {
-    if (this.buttonElement && !this.buttonElement.contains(event.target)) {
+    if (this.button && !ReactDOM.findDOMNode(this.button).contains(event.target)) {
       this.closeMenu();
     }
   }
