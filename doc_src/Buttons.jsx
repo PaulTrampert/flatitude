@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  DropdownButton
-} from '../src/flatitude.js';
+import { ActionDropdown, Button, DropdownButton } from '../src/flatitude.js';
 
 function Buttons() {
   return (
@@ -31,12 +28,19 @@ function Buttons() {
       </div>
 
       <h2>Dropdown Buttons</h2>
-      <DropdownButton title="Click Me">
+      <DropdownButton type="primary" title="Click Me">
         <a href="">Menu Item 1</a>
         <hr/>
         <a href="">Menu Item 2</a>
         <a href="">Menu Item 3</a>
       </DropdownButton>
+
+      <ActionDropdown type="danger" title="Action Dropdown">
+        <a href="">Menu Item 1</a>
+        <hr/>
+        <a href="">Menu Item 2</a>
+        <a href="">Menu Item 3</a>
+      </ActionDropdown>
     </div>
   )
 }

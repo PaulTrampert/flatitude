@@ -71,7 +71,7 @@ class DropdownButton extends React.Component {
         onClick={this.openMenu} 
         {...rest}
       >
-        {title}&nbsp; <i className="fa fa-caret-down"></i>
+        {title}&nbsp;<i className="fa fa-caret-down"></i>
         {
           isOpen &&
           <RenderInBody>
