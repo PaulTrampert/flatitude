@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ButtonTypes from './ButtonTypes.js';
 import classnames from 'classnames';
 
 class Button extends React.Component {
@@ -21,7 +22,7 @@ class Button extends React.Component {
 
 Button.propTypes = {
   className: PropTypes.string,
-  type: PropTypes.oneOf(['primary', 'danger']),
+  type: ButtonTypes,
   children: PropTypes.node
 };
 
