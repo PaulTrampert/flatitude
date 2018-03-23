@@ -8,11 +8,29 @@ table {
 
   th, td {
     text-align: left;
+
+    &.right {
+      text-align: right;
+    }
+
+    &.center {
+      text-align: center;
+    }
   }
 
   th.sortable {
     &:hover {
       cursor: pointer;
+    }
+
+    &.asc::after {
+      .fa-icon();
+      content: "\00a0"@fa-var-chevron-up;
+    }
+
+    &.desc::after {
+      .fa-icon();
+      content: "\00a0"@fa-var-chevron-down;
     }
   }
 }
