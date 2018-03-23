@@ -8,6 +8,7 @@ import {
   Nav
 } from '../src/flatitude.js';
 import Home from './Home.jsx';
+import Tables from './Tables.jsx'
 import Typography from './Typography.jsx';
 import Buttons from './Buttons.jsx';
 import Forms from './Forms.jsx';
@@ -55,6 +56,7 @@ class App extends React.Component {
           </header>
           <Nav collapsed={this.state.navCollapsed} onRequestCollapse={() => this.setNavCollapsed(true)}>
             <Link to="/" exact activeClassName="current">Home</Link>
+            <Link to="/tables" activeClassName="current">Tables</Link>
             <Link to="/typography" activeClassName="current">Typography</Link>
             <Link to="/buttons" activeClassName="current">Buttons</Link>
             <Link to="/forms" activeClassName="current">Forms</Link>
@@ -64,6 +66,7 @@ class App extends React.Component {
           </Nav>
           <main>
             <Route exact path="/" component={Home} />
+            <Route path="/tables" component={Tables} />
             <Route path="/typography" component={Typography} />
             <Route path="/buttons" component={Buttons} />
             <Route path="/forms" component={Forms} />
