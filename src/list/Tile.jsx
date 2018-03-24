@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DropdownArea from '../util/DropdownArea.jsx';
 
 class Tile extends React.Component {
-  handleSelectorClick = (event) => {
+  handleSelectorClick = () => {
     let {
       onSelect,
       isSelected
@@ -37,7 +37,8 @@ class Tile extends React.Component {
 Tile.propTypes = {
   children: PropTypes.node,
   onSelect: PropTypes.func,
-  actions: PropTypes.node
+  actions: PropTypes.node,
+  isSelected: PropTypes.bool
 };
 
 export default Tile;
