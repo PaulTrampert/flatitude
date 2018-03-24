@@ -66,7 +66,7 @@ describe('DropdownButtonLoader', () => {
       it('binds handleClickOutside to document click', () => {
         subject.instance().componentDidMount();
 
-        expect(document.addEventListener).toHaveBeenCalledWith('click', subject.instance().handleClickOutside);
+        expect(document.addEventListener).toHaveBeenCalledWith('mousedown', subject.instance().handleClickOutside);
       });
     });
 
@@ -74,7 +74,7 @@ describe('DropdownButtonLoader', () => {
       it('unbinds handleClickOutside to document click', () => {
         subject.instance().componentWillUnmount();
 
-        expect(document.removeEventListener).toHaveBeenCalledWith('click', subject.instance().handleClickOutside);
+        expect(document.removeEventListener).toHaveBeenCalledWith('mousedown', subject.instance().handleClickOutside);
       });
     });
   });

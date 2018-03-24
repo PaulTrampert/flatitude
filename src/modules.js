@@ -4,3 +4,4 @@ export { default as DropdownButton } from './buttons/DropdownButton.jsx';
 export { default as Modal} from './modals/Modal.jsx';
 export { default as Nav } from './layout/Nav.jsx';
 export { default as Th } from './list/Th.jsx';
+export { default as Tile } from './list/Tile.jsx';
