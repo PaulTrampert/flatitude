@@ -3,20 +3,32 @@ import PropTypes from 'prop-types';
 import DropdownArea from '../util/DropdownArea.jsx';
 
 class Tile extends React.Component {
+  handleSelectorClick = (event) => {
+    let {
+      onSelect,
+      isSelected
+    } = this.props;
+
+    onSelect(!isSelected);
+  }
+
   render() {
     let {
       actions,
       children,
-      onSelect
+      onSelect,
+      isSelected,
     } = this.props;
 
     return (
       <div className="tile">
         <div className="tile-head">
-          {onSelect && <input className="selector" type="checkbox" />}
+          {onSelect && <input className="selector" type="checkbox" checked={isSelected} onChange={this.handleSelectorClick} />}
           {actions && <DropdownArea className="fa fa-ellipsis-v actions" dropdown={actions} />}
         </div>
-        {children}
+        <div className="tile-body">
+          {children}
+        </div>
       </div>
     );
   }
