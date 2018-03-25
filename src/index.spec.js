@@ -3,8 +3,11 @@ import {
   ActionDropdown,
   Button,
   DropdownArea,
+  LoadingField,
   Modal,
   Nav,
+  ProgressBar,
+  Spinner,
   Th,
   Tile
 } from './flatitude.js';
@@ -29,6 +32,12 @@ describe('flatitude', () => {
     expect(fl.DropdownArea).toBeDefined();
   });
 
+  it('exposes LoadingField', () => {
+    expect(flatitude.LoadingField).toBeDefined();
+    expect(LoadingField).toBeDefined();
+    expect(fl.LoadingField).toBeDefined();
+  });
+
   it('exposes Modal', () => {
     expect(flatitude.Modal).toBeDefined();
     expect(Modal).toBeDefined();
@@ -39,6 +48,18 @@ describe('flatitude', () => {
     expect(flatitude.Nav).toBeDefined();
     expect(Nav).toBeDefined();
     expect(fl.Nav).toBeDefined();
+  });
+
+  it("exposes ProgressBar", () => {
+    expect(flatitude.ProgressBar).toBeDefined();
+    expect(ProgressBar).toBeDefined();
+    expect(fl.ProgressBar).toBeDefined();
+  });
+
+  it("exposes Spinner", () => {
+    expect(flatitude.Spinner).toBeDefined();
+    expect(Spinner).toBeDefined();
+    expect(fl.Spinner).toBeDefined();
   });
 
   it("exposes Th", () => {
