@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import DropdownArea from '../util/DropdownArea.jsx';
+import getPassthroughProps from '../util/getPassthroughProps.js';
 
 class Tile extends React.Component {
   handleSelectorClick = () => {
@@ -18,7 +20,8 @@ class Tile extends React.Component {
       children,
       onSelect,
       isSelected,
-      onClick
+      onClick,
+      className
     } = this.props;
 
     let body;
@@ -39,7 +42,7 @@ class Tile extends React.Component {
     }
 
     return (
-      <div className="tile">
+      <div className={classnames(["tile", className])} {...getPassthroughProps(this.props)}>
         {
           (onSelect || actions) && (
             <div className="tile-head">
@@ -56,6 +59,7 @@ class Tile extends React.Component {
 
 Tile.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
   onSelect: PropTypes.func,
   actions: PropTypes.node,
   isSelected: PropTypes.bool,
