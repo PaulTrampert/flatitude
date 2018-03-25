@@ -30,13 +30,17 @@ class DropdownArea extends React.Component {
   }
 
   handleClickOutside = (event) => {
-    if (this.divRef && !this.divRef.contains(event.target)) {
+    if (this.dropdownRef && !this.dropdownRef.contains(event.target)) {
       this.closeMenu();
     }
   }
 
   saveDivRef = ref => {
     this.divRef = ref;
+  }
+
+  saveDropdownRef = ref => {
+    this.dropdownRef = ref;
   }
 
   openMenu = () => {
@@ -55,6 +59,14 @@ class DropdownArea extends React.Component {
     onClick(event);
   }
 
+  handleItemClick = (originalOnClick, e) => {
+    if (originalOnClick) {
+      originalOnClick(e);
+    }
+
+    this.closeMenu();
+  }
+
   render() {
     let {
       children,
@@ -71,8 +83,17 @@ class DropdownArea extends React.Component {
         {
           isOpen &&
           <RenderInBody>
-            <div className="dropdown" style={this.menuStyle}>
-              {dropdown}
+            <div ref={this.saveDropdownRef} className="dropdown" style={this.menuStyle}>
+              {
+                dropdown.map(child => {
+                  if (child.type !== "hr") {
+                    return React.cloneElement(child, {onClick: (e) => this.handleItemClick(child.props.onClick, e)});
+                  }
+                  else {
+                    return React.cloneElement(child);
+                  }
+                })
+              }
             </div>
           </RenderInBody>
         }
@@ -88,7 +109,8 @@ DropdownArea.propTypes = {
 };
 
 DropdownArea.defaultProps = {
-  onClick: () => {}
+  onClick: () => {},
+  dropdown: []
 };
 
 export default DropdownArea;

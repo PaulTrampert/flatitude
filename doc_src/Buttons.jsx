@@ -36,7 +36,7 @@ function Buttons() {
       </DropdownButton>
 
       <ActionDropdown type="danger" title="Action Dropdown">
-        <a href="">Menu Item 1</a>
+        <a href="" onClick={() => alert('')}>Menu Item 1</a>
         <hr/>
         <a href="">Menu Item 2</a>
         <a href="">Menu Item 3</a>

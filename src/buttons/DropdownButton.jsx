@@ -35,7 +35,7 @@ class DropdownButton extends React.Component {
   }
 
   handleClickOutside = (event) => {
-    if (this.button && !ReactDOM.findDOMNode(this.button).contains(event.target)) {
+    if (this.menuRef && !this.menuRef.contains(event.target)) {
       this.closeMenu();
     }
   }
@@ -52,6 +52,17 @@ class DropdownButton extends React.Component {
     if (ref) {
       this.button = ref;
     }
+  }
+
+  setMenuRef = (ref) => {
+    this.menuRef = ref;
+  }
+
+  handleItemClick = (originalOnClick, e) => {
+    if (originalOnClick) {
+      originalOnClick(e);
+    }
+    this.closeMenu();
   }
 
   render() {
@@ -78,8 +89,17 @@ class DropdownButton extends React.Component {
         {
           isOpen &&
           <RenderInBody>
-            <div className="dropdown" style={this.menuStyle}>
-              {children}
+            <div ref={this.setMenuRef} className="dropdown" style={this.menuStyle}>
+              {
+                React.Children.map(children, child => {
+                  if (child.type !== "hr") {
+                    return React.cloneElement(child, {onClick: (e) => this.handleItemClick(child.props.onClick, e)});
+                  }
+                  else {
+                    return React.cloneElement(child);
+                  }
+                })
+              }
             </div>
           </RenderInBody>
         }
