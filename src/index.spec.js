@@ -5,6 +5,7 @@ import {
   DropdownArea,
   Modal,
   Nav,
+  ProgressBar,
   Spinner,
   Th,
   Tile
@@ -40,6 +41,12 @@ describe('flatitude', () => {
     expect(flatitude.Nav).toBeDefined();
     expect(Nav).toBeDefined();
     expect(fl.Nav).toBeDefined();
+  });
+
+  it("exposes ProgressBar", () => {
+    expect(flatitude.ProgressBar).toBeDefined();
+    expect(ProgressBar).toBeDefined();
+    expect(fl.ProgressBar).toBeDefined();
   });
 
   it("exposes Spinner", () => {
