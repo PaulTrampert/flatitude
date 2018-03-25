@@ -18,17 +18,37 @@ class Tile extends React.Component {
       children,
       onSelect,
       isSelected,
+      onClick
     } = this.props;
 
-    return (
-      <div className="tile">
-        <div className="tile-head">
-          {onSelect && <input className="selector" type="checkbox" checked={isSelected} onChange={this.handleSelectorClick} />}
-          {actions && <DropdownArea className="fa fa-ellipsis-v actions" dropdown={actions} />}
-        </div>
+    let body;
+
+    if (onClick) {
+      body = (
+        <a onClick={onClick} className="tile-body">
+          {children}
+        </a>
+      );
+    }
+    else {
+      body = (
         <div className="tile-body">
           {children}
         </div>
+      );
+    }
+
+    return (
+      <div className="tile">
+        {
+          (onSelect || actions) && (
+            <div className="tile-head">
+              {onSelect && <input className="selector" type="checkbox" checked={isSelected} onChange={this.handleSelectorClick} />}
+              {actions && <DropdownArea className="fa fa-ellipsis-v actions" dropdown={actions} />}
+            </div>
+          )
+        }
+        {body}
       </div>
     );
   }
@@ -38,7 +58,8 @@ Tile.propTypes = {
   children: PropTypes.node,
   onSelect: PropTypes.func,
   actions: PropTypes.node,
-  isSelected: PropTypes.bool
+  isSelected: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default Tile;
