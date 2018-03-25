@@ -2,11 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import getPassthroughProps from '../util/getPassthroughProps.js';
+import document from '../util/document.js';
 
 class Nav extends React.Component {
 
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount = () => {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount = () => {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  handleClickOutside = () => {
+    if (this.navRef && !this.navRef.contains(event.target)) {
+      this.props.onRequestCollapse();
+    }
+  }
+
+  saveNavRef = (ref) => {
+    this.navRef = ref;
   }
 
   handleNavItemClick(originalOnClick, e) {
@@ -30,7 +49,7 @@ class Nav extends React.Component {
     }
 
     return (
-      <nav className={classnames(classes)} style={style} {...getPassthroughProps(this)}>
+      <nav ref={this.saveNavRef} className={classnames(classes)} style={style} {...getPassthroughProps(this)}>
         {
           React.Children.map(children, child => {
             if (child.type !== "hr") {
