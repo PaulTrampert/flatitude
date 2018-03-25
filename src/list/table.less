@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  tr {
+    border-bottom: 1px solid @grey-c
+  }
+
+  th, td {
+    text-align: left;
+
+    &.right {
+      text-align: right;
+    }
+
+    &.center {
+      text-align: center;
+    }
+  }
+
+  th.sortable {
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.asc::after {
+      .fa-icon();
+      content: "\00a0"@fa-var-chevron-down;
+    }
+
+    &.desc::after {
+      .fa-icon();
+      content: "\00a0"@fa-var-chevron-up;
+    }
+  }
+}

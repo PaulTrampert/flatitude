@@ -1,0 +1,33 @@
+.tile-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.tile {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  min-height: 100px;
+  min-width: 100px;
+  border: 1px solid @grey-c;
+  padding: 5px;
+  
+  .tile-head {
+    min-height: 15px;
+
+    .selector {
+      float: left;
+    }
+
+    .actions {
+      float: right;
+    }
+  }
+
+  .tile-body {
+    flex: 1 1 auto;
+    color: unset;
+  }
+}

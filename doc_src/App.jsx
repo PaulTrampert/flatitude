@@ -8,10 +8,13 @@ import {
   Nav
 } from '../src/flatitude.js';
 import Home from './Home.jsx';
-import Typography from './Typography.jsx';
 import Buttons from './Buttons.jsx';
 import Forms from './Forms.jsx';
+import Loading from './Loading.jsx';
 import Modals from './Modals.jsx';
+import Tables from './Tables.jsx';
+import Tiles from './Tiles.jsx';
+import Typography from './Typography.jsx';
 
 let navTypes = [
   'left-nav',
@@ -55,19 +58,25 @@ class App extends React.Component {
           </header>
           <Nav collapsed={this.state.navCollapsed} onRequestCollapse={() => this.setNavCollapsed(true)}>
             <Link to="/" exact activeClassName="current">Home</Link>
-            <Link to="/typography" activeClassName="current">Typography</Link>
             <Link to="/buttons" activeClassName="current">Buttons</Link>
             <Link to="/forms" activeClassName="current">Forms</Link>
+            <Link to="/loading" activeClassName="current">Loading States</Link>
             <Link to="/modals" activeClassName="current">Modals</Link>
+            <Link to="/tables" activeClassName="current">Tables</Link>
+            <Link to="/tiles" activeClassName="current">Tiles</Link>
+            <Link to="/typography" activeClassName="current">Typography</Link>
             <hr/>
             <a href="https://github.com/PaulTrampert/flatitude" target="_blank">GitHub <i className="fa fa-external-link"></i></a>
           </Nav>
           <main>
             <Route exact path="/" component={Home} />
-            <Route path="/typography" component={Typography} />
             <Route path="/buttons" component={Buttons} />
             <Route path="/forms" component={Forms} />
+            <Route path="/loading" component={Loading} />
             <Route path="/modals" component={Modals} />
+            <Route path="/tables" component={Tables} />
+            <Route path="/tiles" component={Tiles} />
+            <Route path="/typography" component={Typography} />
           </main>
         </div>
       </Router>
