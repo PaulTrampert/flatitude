@@ -10,6 +10,7 @@ import {
 import Home from './Home.jsx';
 import Buttons from './Buttons.jsx';
 import Forms from './Forms.jsx';
+import Loading from './Loading.jsx';
 import Modals from './Modals.jsx';
 import Tables from './Tables.jsx';
 import Tiles from './Tiles.jsx';
@@ -59,6 +60,7 @@ class App extends React.Component {
             <Link to="/" exact activeClassName="current">Home</Link>
             <Link to="/buttons" activeClassName="current">Buttons</Link>
             <Link to="/forms" activeClassName="current">Forms</Link>
+            <Link to="/loading" activeClassName="current">Loading States</Link>
             <Link to="/modals" activeClassName="current">Modals</Link>
             <Link to="/tables" activeClassName="current">Tables</Link>
             <Link to="/tiles" activeClassName="current">Tiles</Link>
@@ -70,6 +72,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route path="/buttons" component={Buttons} />
             <Route path="/forms" component={Forms} />
+            <Route path="/loading" component={Loading} />
             <Route path="/modals" component={Modals} />
             <Route path="/tables" component={Tables} />
             <Route path="/tiles" component={Tiles} />

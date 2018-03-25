@@ -5,6 +5,7 @@ import {
   DropdownArea,
   Modal,
   Nav,
+  Spinner,
   Th,
   Tile
 } from './flatitude.js';
@@ -39,6 +40,12 @@ describe('flatitude', () => {
     expect(flatitude.Nav).toBeDefined();
     expect(Nav).toBeDefined();
     expect(fl.Nav).toBeDefined();
+  });
+
+  it("exposes Spinner", () => {
+    expect(flatitude.Spinner).toBeDefined();
+    expect(Spinner).toBeDefined();
+    expect(fl.Spinner).toBeDefined();
   });
 
   it("exposes Th", () => {
