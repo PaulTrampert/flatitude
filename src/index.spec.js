@@ -3,6 +3,7 @@ import {
   ActionDropdown,
   Button,
   DropdownArea,
+  LoadingField,
   Modal,
   Nav,
   ProgressBar,
@@ -29,6 +30,12 @@ describe('flatitude', () => {
     expect(flatitude.DropdownArea).toBeDefined();
     expect(DropdownArea).toBeDefined();
     expect(fl.DropdownArea).toBeDefined();
+  });
+
+  it('exposes LoadingField', () => {
+    expect(flatitude.LoadingField).toBeDefined();
+    expect(LoadingField).toBeDefined();
+    expect(fl.LoadingField).toBeDefined();
   });
 
   it('exposes Modal', () => {
