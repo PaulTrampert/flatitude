@@ -61,10 +61,15 @@ module.exports = {
               loader: 'css-loader',
               options: {
                 minimize: PROD,
-                sourcemap: true,
+                sourceMap: true,
               }
             },
-            'less-loader'
+            {
+              loader: 'less-loader',
+              options: {
+                sourceMap: true
+              }
+            }
           ]
         })
       },
