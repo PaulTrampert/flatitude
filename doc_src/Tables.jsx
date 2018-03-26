@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../src/buttons/Button.jsx';
 import Th from '../src/list/Th.jsx';
 import PagingControls from '../src/list/PagingControls.jsx';
+import SearchBox from '../src/list/SearchBox.jsx';
 
 const data = new Array(100).fill(0).map(() =>({
   id: Math.random().toString(36).substring(2,7),
@@ -18,7 +19,23 @@ class Tables extends React.Component {
       sortBy: '',
       offset: 0,
       size: 10,
+      pendingSearchTerm: '',
+      searchTerm: ''
     };
+  }
+
+  handleSearchTermChange = (searchTerm) => {
+    this.setState({
+      pendingSearchTerm: searchTerm
+    });
+  }
+
+  handleSearch = (searchTerm) => {
+    this.setState({
+      pendingSearchTerm: searchTerm,
+      searchTerm,
+      offset: 0,
+    });
   }
 
   handleSort = (direction, name) => {
@@ -38,7 +55,7 @@ class Tables extends React.Component {
       data: newData,
       sortDirection: direction,
       sortBy: name,
-      offset: 0
+      offset: 0,
     });
   }
 
@@ -55,11 +72,15 @@ class Tables extends React.Component {
       sortBy,
       data,
       offset,
-      size
+      size,
+      searchTerm
     } = this.state;
     return (
       <div>
         <h1>Tables</h1>
+        <div>
+          <SearchBox value={searchTerm} onChange={this.handleSearchTermChange} onSearch={this.handleSearch} autosearch />
+        </div>
         <table>
           <thead>
             <tr>
