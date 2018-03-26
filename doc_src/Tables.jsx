@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../src/buttons/Button.jsx';
 import Th from '../src/list/Th.jsx';
+import PagingControls from '../src/list/PagingControls.jsx';
 
 const data = new Array(100).fill(0).map(() =>({
   id: Math.random().toString(36).substring(2,7),
@@ -14,7 +15,9 @@ class Tables extends React.Component {
     this.state = {
       data: data,
       sortDirection: '',
-      sortBy: ''
+      sortBy: '',
+      offset: 0,
+      size: 10,
     };
   }
 
@@ -34,7 +37,15 @@ class Tables extends React.Component {
     this.setState({
       data: newData,
       sortDirection: direction,
-      sortBy: name
+      sortBy: name,
+      offset: 0
+    });
+  }
+
+  handlePageSelected = (offset, size) => {
+    this.setState({
+      offset,
+      size
     });
   }
 
@@ -42,7 +53,9 @@ class Tables extends React.Component {
     let {
       sortDirection,
       sortBy,
-      data
+      data,
+      offset,
+      size
     } = this.state;
     return (
       <div>
@@ -56,7 +69,9 @@ class Tables extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {data.map(d => (
+            {data
+            .slice(offset, offset + size)
+            .map(d => (
               <tr key={d.id}>
                 <td>{d.id}</td>
                 <td className="right">{d.number}</td>
@@ -65,6 +80,7 @@ class Tables extends React.Component {
             ))}
           </tbody>
         </table>
+        <PagingControls offset={offset} size={size} total={data.length} onPageSelected={this.handlePageSelected} />
       </div>
     );
   }

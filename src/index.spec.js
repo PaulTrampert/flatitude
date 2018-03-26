@@ -6,6 +6,7 @@ import {
   LoadingField,
   Modal,
   Nav,
+  PagingControls,
   ProgressBar,
   Spinner,
   Th,
@@ -48,6 +49,12 @@ describe('flatitude', () => {
     expect(flatitude.Nav).toBeDefined();
     expect(Nav).toBeDefined();
     expect(fl.Nav).toBeDefined();
+  });
+
+  it("exposes PagingControls", () => {
+    expect(flatitude.PagingControls).toBeDefined();
+    expect(PagingControls).toBeDefined();
+    expect(fl.PagingControls).toBeDefined();
   });
 
   it("exposes ProgressBar", () => {

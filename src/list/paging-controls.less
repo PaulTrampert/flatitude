@@ -1,0 +1,27 @@
+.paging-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  .pages {
+    display: table;
+    border-collapse: collapse;
+
+    * {
+      display: table-cell;
+      padding: 10px;
+      border: 1px solid @grey-c;
+    }
+  }
+
+  .page-sizes * {
+    border-right: 1px solid @grey-c;
+    margin-right: 5px;
+    padding-right: 5px;
+  }
+
+  .page-sizes :last-child {
+    border-right: none;
+  }
+}
