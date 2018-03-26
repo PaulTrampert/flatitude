@@ -5,6 +5,7 @@ export { default as DropdownButton } from './buttons/DropdownButton.jsx';
 export { default as LoadingField } from './loading/LoadingField.jsx';
 export { default as Modal} from './modals/Modal.jsx';
 export { default as Nav } from './layout/Nav.jsx';
+export { default as PagingControls } from './list/PagingControls.jsx';
 export { default as ProgressBar } from './loading/ProgressBar.jsx';
 export { default as Spinner } from './loading/Spinner.jsx';
 export { default as Th } from './list/Th.jsx';
