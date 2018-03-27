@@ -1,39 +1,23 @@
 .search-bar {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  border: 1px solid @grey-c;
+  border-radius: 2px;
 
   * {
     margin: 0;
   }
 
   input {
-    border: unset;
-    border-left: 1px solid @grey-3;
-    border-top: 1px solid @grey-3;
-    border-bottom: 1px solid @grey-3;
-    border-radius: 2px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border: none;
     &:focus,
     &:active {
       outline: none;
-      +button {
-        outline-color: lighten(@primary, 30%);
-        border-color: lighten(@primary, 30%);
-      }
     }
   }
 
   button {
-    border: unset;
-    border-right: 1px solid @grey-3;
-    border-top: 1px solid @grey-3;
-    border-bottom: 1px solid @grey-3;
-    border-radius: 2px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    margin-top: 1px;
-    padding: 4px;
-    height: 29px;
+    border: none;
+    outline: none;
   }
 }
