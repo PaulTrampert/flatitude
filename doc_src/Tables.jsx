@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../src/buttons/Button.jsx';
 import Th from '../src/list/Th.jsx';
 import PagingControls from '../src/list/PagingControls.jsx';
+import SearchBox from '../src/list/SearchBox.jsx';
 
 const data = new Array(100).fill(0).map(() =>({
   id: Math.random().toString(36).substring(2,7),
@@ -18,7 +19,22 @@ class Tables extends React.Component {
       sortBy: '',
       offset: 0,
       size: 10,
+      pendingSearchTerm: '',
+      searchTerm: ''
     };
+  }
+
+  handleSearchTermChange = (searchTerm) => {
+    this.setState({
+      pendingSearchTerm: searchTerm
+    });
+  }
+
+  handleSearch = () => {
+    this.setState({
+      searchTerm: this.state.pendingSearchTerm,
+      offset: 0,
+    });
   }
 
   handleSort = (direction, name) => {
@@ -38,7 +54,7 @@ class Tables extends React.Component {
       data: newData,
       sortDirection: direction,
       sortBy: name,
-      offset: 0
+      offset: 0,
     });
   }
 
@@ -55,11 +71,19 @@ class Tables extends React.Component {
       sortBy,
       data,
       offset,
-      size
+      size,
+      pendingSearchTerm,
+      searchTerm
     } = this.state;
+
+    let searchedData = data.filter(d => d.id.includes(searchTerm));
+    let pagedData = searchedData.slice(offset, offset + size)
     return (
       <div>
         <h1>Tables</h1>
+        <div>
+          <SearchBox value={pendingSearchTerm} onChange={this.handleSearchTermChange} onSearch={this.handleSearch} autosearch style={{float: 'right', width: '500px'}}/>
+        </div>
         <table>
           <thead>
             <tr>
@@ -69,18 +93,19 @@ class Tables extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {data
-            .slice(offset, offset + size)
-            .map(d => (
-              <tr key={d.id}>
-                <td>{d.id}</td>
-                <td className="right">{d.number}</td>
-                <td className="center"><Button type="danger"><i className="fa fa-trash"></i></Button></td>
-              </tr>
-            ))}
+            {
+              pagedData
+                .map(d => (
+                  <tr key={d.id}>
+                    <td>{d.id}</td>
+                    <td className="right">{d.number}</td>
+                    <td className="center"><Button type="danger"><i className="fa fa-trash"></i></Button></td>
+                  </tr>
+                ))
+            }
           </tbody>
         </table>
-        <PagingControls offset={offset} size={size} total={data.length} onPageSelected={this.handlePageSelected} />
+        <PagingControls offset={offset} size={size} total={searchedData.length} onPageSelected={this.handlePageSelected} />
       </div>
     );
   }

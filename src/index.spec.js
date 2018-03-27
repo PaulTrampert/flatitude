@@ -8,6 +8,7 @@ import {
   Nav,
   PagingControls,
   ProgressBar,
+  SearchBox,
   Spinner,
   Th,
   Tile
@@ -61,6 +62,12 @@ describe('flatitude', () => {
     expect(flatitude.ProgressBar).toBeDefined();
     expect(ProgressBar).toBeDefined();
     expect(fl.ProgressBar).toBeDefined();
+  });
+
+  it('exposes SearchBox', () => {
+    expect(flatitude.SearchBox).toBeDefined();
+    expect(SearchBox).toBeDefined();
+    expect(fl.SearchBox).toBeDefined();
   });
 
   it("exposes Spinner", () => {

@@ -14,7 +14,7 @@ class PagingControls extends React.Component {
     return (
       <div className="paging-controls">
         <span>
-          {offset} - {offset+size} of {total}
+          {offset + 1} - {Math.min(offset+size, total)} of {total}
         </span>
         <span className="pages">
           {(offset > 0) && <a onClick={() => onPageSelected(0, size)}>&lt;&lt;</a>}
