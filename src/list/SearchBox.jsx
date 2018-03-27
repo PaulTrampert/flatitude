@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import window from '../util/window.js';
+import getPassthroughProps from '../util/getPassthroughProps.js';
 
 class SearchBox extends React.Component {
 
@@ -34,11 +36,12 @@ class SearchBox extends React.Component {
   render() {
     let {
       value,
+      className
     } = this.props;
     return (
-      <form onSubmit={this.handleSearch} className="search-bar">
-        <input value={value} onChange={this.handleChange} type="search" />
+      <form onSubmit={this.handleSearch} className={classnames(["search-bar", className])} {...getPassthroughProps(this)}>
         <button type="submit" className="transparent fa fa-search"></button> 
+        <input value={value} onChange={this.handleChange} type="search" />
       </form>
     );
   }
@@ -49,7 +52,8 @@ SearchBox.propTypes = {
   onChange: PropTypes.func,
   onSearch: PropTypes.func,
   autosearch: PropTypes.bool,
-  autosearchDelayMs: PropTypes.number
+  autosearchDelayMs: PropTypes.number,
+  className: PropTypes.string
 };
 
 SearchBox.defaultProps = {

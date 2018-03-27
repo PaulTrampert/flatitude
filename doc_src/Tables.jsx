@@ -82,7 +82,7 @@ class Tables extends React.Component {
       <div>
         <h1>Tables</h1>
         <div>
-          <SearchBox value={pendingSearchTerm} onChange={this.handleSearchTermChange} onSearch={this.handleSearch} autosearch />
+          <SearchBox value={pendingSearchTerm} onChange={this.handleSearchTermChange} onSearch={this.handleSearch} autosearch style={{float: 'right', width: '500px'}}/>
         </div>
         <table>
           <thead>
