@@ -7,7 +7,13 @@ import getPassthroughProps from '../util/getPassthroughProps.js';
 class SearchBox extends React.Component {
 
   handleSearch = (event) => {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
+    if (this.timeout) {
+      window.clearTimeout(this.timeout);
+      delete this.timeout;
+    }
     let {
       onSearch
     } = this.props;
@@ -17,7 +23,6 @@ class SearchBox extends React.Component {
   handleChange = (event) => {
     let {
       onChange,
-      onSearch,
       autosearch,
       autosearchDelayMs
     } = this.props;
@@ -26,10 +31,7 @@ class SearchBox extends React.Component {
       if (this.timeout) {
         window.clearTimeout(this.timeout);
       }
-      this.timeout = window.setTimeout(() => {
-        delete this.timeout;
-        onSearch();
-      }, autosearchDelayMs);
+      this.timeout = window.setTimeout(this.handleSearch, autosearchDelayMs);
     }
   }
 
