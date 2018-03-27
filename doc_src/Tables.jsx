@@ -75,6 +75,9 @@ class Tables extends React.Component {
       pendingSearchTerm,
       searchTerm
     } = this.state;
+
+    let searchedData = data.filter(d => d.id.includes(searchTerm));
+    let pagedData = searchedData.slice(offset, offset + size)
     return (
       <div>
         <h1>Tables</h1>
@@ -90,18 +93,19 @@ class Tables extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {data
-            .slice(offset, offset + size)
-            .map(d => (
-              <tr key={d.id}>
-                <td>{d.id}</td>
-                <td className="right">{d.number}</td>
-                <td className="center"><Button type="danger"><i className="fa fa-trash"></i></Button></td>
-              </tr>
-            ))}
+            {
+              pagedData
+                .map(d => (
+                  <tr key={d.id}>
+                    <td>{d.id}</td>
+                    <td className="right">{d.number}</td>
+                    <td className="center"><Button type="danger"><i className="fa fa-trash"></i></Button></td>
+                  </tr>
+                ))
+            }
           </tbody>
         </table>
-        <PagingControls offset={offset} size={size} total={data.length} onPageSelected={this.handlePageSelected} />
+        <PagingControls offset={offset} size={size} total={searchedData.length} onPageSelected={this.handlePageSelected} />
       </div>
     );
   }
