@@ -30,10 +30,9 @@ class Tables extends React.Component {
     });
   }
 
-  handleSearch = (searchTerm) => {
+  handleSearch = () => {
     this.setState({
-      pendingSearchTerm: searchTerm,
-      searchTerm,
+      searchTerm: this.state.pendingSearchTerm,
       offset: 0,
     });
   }
@@ -73,13 +72,14 @@ class Tables extends React.Component {
       data,
       offset,
       size,
+      pendingSearchTerm,
       searchTerm
     } = this.state;
     return (
       <div>
         <h1>Tables</h1>
         <div>
-          <SearchBox value={searchTerm} onChange={this.handleSearchTermChange} onSearch={this.handleSearch} autosearch />
+          <SearchBox value={pendingSearchTerm} onChange={this.handleSearchTermChange} onSearch={this.handleSearch} autosearch />
         </div>
         <table>
           <thead>
