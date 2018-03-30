@@ -6,7 +6,9 @@ import {
   LoadingField,
   Modal,
   Nav,
+  PagingControls,
   ProgressBar,
+  SearchBox,
   Spinner,
   Th,
   Tile
@@ -50,10 +52,22 @@ describe('flatitude', () => {
     expect(fl.Nav).toBeDefined();
   });
 
+  it("exposes PagingControls", () => {
+    expect(flatitude.PagingControls).toBeDefined();
+    expect(PagingControls).toBeDefined();
+    expect(fl.PagingControls).toBeDefined();
+  });
+
   it("exposes ProgressBar", () => {
     expect(flatitude.ProgressBar).toBeDefined();
     expect(ProgressBar).toBeDefined();
     expect(fl.ProgressBar).toBeDefined();
+  });
+
+  it('exposes SearchBox', () => {
+    expect(flatitude.SearchBox).toBeDefined();
+    expect(SearchBox).toBeDefined();
+    expect(fl.SearchBox).toBeDefined();
   });
 
   it("exposes Spinner", () => {

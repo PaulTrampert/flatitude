@@ -1,0 +1,24 @@
+.search-bar {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid @grey-c;
+  border-radius: 2px;
+
+  * {
+    margin: 0;
+  }
+
+  input {
+    border: none;
+    flex: 1 1 auto;
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  button {
+    border: none;
+    outline: none;
+  }
+}
