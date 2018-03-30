@@ -45,7 +45,7 @@ module.exports = function(config) {
     },
     junitReporter: {
       outputDir: 'testReports',
-      useBrowserName: false
+      useBrowserName: true
     },
 
     // web server port
