@@ -4,6 +4,8 @@ let webpack = require('./webpack.config.js');
 delete webpack.externals;
 webpack.devtool = 'inline-sourcemap';
 
+const chromeLauncher = process.platform === 'win32' ? 'ChromeHeadless' : 'ChromiumHeadless';
+
 module.exports = function(config) {
   config.set({
 
@@ -67,7 +69,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['ChromiumHeadless', 'FirefoxHeadless'],
+    browsers: [ chromeLauncher , 'FirefoxHeadless'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
