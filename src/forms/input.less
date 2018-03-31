@@ -21,17 +21,6 @@ input {
   &.touched:invalid {
     border-color: @danger;
   }
-
-  &::-webkit-search-cancel-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    font-family: 'gonzocons' !important;
-  
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content:"\e913";
-  }
 }
 
 .input-group {
@@ -50,6 +39,8 @@ input {
     font-weight: bold;
     text-align: right;
     margin-right: @input-margin;
+    line-height: 100%;
+    vertical-align: middle;
   }
 
   input {
