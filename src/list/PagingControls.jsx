@@ -23,7 +23,9 @@ class PagingControls extends React.Component {
           {(offset + size < total) && <a onClick={() => onPageSelected(total-size, size)}>&gt;&gt;</a>}
         </span>
         <span className="page-sizes">
-          {pageSizes.map(s => <a key={s} onClick={() => onPageSelected(0, s)}>{s}</a>)}
+          {pageSizes.map(s => 
+            s === size ? <span key={s}>{s}</span> : <a key={s} onClick={() => onPageSelected(0, s)}>{s}</a>
+          )}
         </span>
       </div>
     );
