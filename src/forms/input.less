@@ -53,6 +53,15 @@ input {
   .help {
     grid-area: help;
     color: @grey-7;
+    
+    .error{
+      &::before {
+        .fa-icon();
+        content: @fa-var-exclamation-triangle;
+      }
+      color: @danger;
+      margin-right: 10px;
+    }
   }
 
   &.invalid {
@@ -63,16 +72,6 @@ input {
     input {
       border-color: @danger;
       .focus-active(@danger);
-    }
-
-    .help {
-      color: @danger;
-
-      .error::before {
-        .fa-icon();
-        content: @fa-var-exclamation-triangle;
-        margin-right: 10px;
-      }
     }
   }
 }
