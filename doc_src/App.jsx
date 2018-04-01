@@ -8,6 +8,7 @@ import {
   Nav
 } from '../src/flatitude.js';
 import Home from './Home.jsx';
+import Alerts from './Alerts.jsx';
 import Buttons from './Buttons.jsx';
 import Forms from './Forms.jsx';
 import Loading from './Loading.jsx';
@@ -20,7 +21,7 @@ let navTypes = [
   'left-nav',
   'right-nav',
   'default'
-]
+];
 
 class App extends React.Component {
 
@@ -58,6 +59,7 @@ class App extends React.Component {
           </header>
           <Nav collapsed={this.state.navCollapsed} onRequestCollapse={() => this.setNavCollapsed(true)}>
             <Link to="/" exact activeClassName="current">Home</Link>
+            <Link to="/alerts" activeClassName="current">Alerts</Link>
             <Link to="/buttons" activeClassName="current">Buttons</Link>
             <Link to="/forms" activeClassName="current">Forms</Link>
             <Link to="/loading" activeClassName="current">Loading States</Link>
@@ -66,10 +68,11 @@ class App extends React.Component {
             <Link to="/tiles" activeClassName="current">Tiles</Link>
             <Link to="/typography" activeClassName="current">Typography</Link>
             <hr/>
-            <a href="https://github.com/PaulTrampert/flatitude" target="_blank">GitHub <i className="fa fa-external-link"></i></a>
+            <a href="https://github.com/PaulTrampert/flatitude" target="_blank" rel="noopener noreferrer">GitHub <i className="fa fa-external-link"></i></a>
           </Nav>
           <main>
             <Route exact path="/" component={Home} />
+            <Route path="/alerts" component={Alerts} />
             <Route path="/buttons" component={Buttons} />
             <Route path="/forms" component={Forms} />
             <Route path="/loading" component={Loading} />
