@@ -1,6 +1,7 @@
 import flatitude from './flatitude.js';
 import {
   ActionDropdown,
+  Alert,
   Button,
   DropdownArea,
   LoadingField,
@@ -20,6 +21,12 @@ describe('flatitude', () => {
     expect(flatitude.ActionDropdown).toBeDefined();
     expect(ActionDropdown).toBeDefined();
     expect(fl.ActionDropdown).toBeDefined();
+  });
+
+  it('exposes Alert', () => {
+    expect(flatitude.Alert).toBeDefined();
+    expect(Alert).toBeDefined();
+    expect(fl.Alert).toBeDefined();
   });
 
   it('exposes Button', () => {

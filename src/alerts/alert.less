@@ -1,0 +1,42 @@
+.alert {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  border-radius: 2px;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+
+  &.info {
+    background-color: @info;
+    color: @grey-e;
+  }
+
+  &.danger {
+    background-color: @danger;
+    color: @grey-e;
+  }
+
+  &.warning {
+    background-color: @warning;
+    color: @grey-1;
+  }
+
+  &.success {
+    background-color: @success;
+    color: @grey-e;
+  }
+
+  .icon {
+    margin-right: 5px;
+  }
+  
+  .message {
+    flex: 1 1 auto;
+  }
+
+  .action {
+    color: currentColor;
+    text-transform: uppercase;
+  }
+}
