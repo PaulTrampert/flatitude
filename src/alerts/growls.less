@@ -4,9 +4,18 @@
 }
 
 @keyframes growl-fadeout {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { height: 0; }
+  0% { 
+    opacity: 1; 
+    height: initial;
+  }
+  50% { 
+    opacity: 0; 
+    height: initial;
+  }
+  100% { 
+    opacity: 0;
+    height: 0; 
+  }
 }
 
 .growl-area {
@@ -50,6 +59,10 @@
       font-size: 75px;
       min-width: 75px;
       text-align: center;
+    }
+
+    &.expiring {
+      animation: growl-fadeout 2s;
     }
 
     &.success {

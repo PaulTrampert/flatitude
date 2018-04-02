@@ -7,6 +7,10 @@ import classnames from 'classnames';
 class Growl extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      expiring: false
+    };
   }
 
   componentDidMount = () => {
@@ -14,15 +18,25 @@ class Growl extends React.Component {
       durationMs,
     } = this.props;
     this.timer = window.setTimeout(this.handleExpire, durationMs);
+    this.ref.addEventListener('animationend', this.onFadeoutEnd);
+  }
+
+  componentWillUnmount = () => {
+    this.ref.removeEventListener('animationend', this.onFadeoutEnd);
+  }
+
+  onFadeoutEnd = (event) => {
+    if (event.animationName === 'growl-fadeout') {
+      this.props.onExpire(this.props.id);
+    }
   }
 
   handleExpire = () => {
-    let {
-      id,
-      onExpire
-    } = this.props;
+    this.setState({expiring: true});
+  }
 
-    onExpire(id);
+  handleRef = (ref) => {
+    this.ref = ref;
   }
 
   render() {
@@ -32,8 +46,11 @@ class Growl extends React.Component {
       type,
       onDismiss
     } = this.props;
+    let {
+      expiring
+    } = this.state;
     return (
-      <div className={classnames("growl", type)}>
+      <div ref={this.handleRef} className={classnames("growl", type, expiring && 'expiring')}>
         <div className="icon">
         </div>
         <div className="message">
