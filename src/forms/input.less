@@ -21,48 +21,47 @@ input {
   &.touched:invalid {
     border-color: @danger;
   }
-
-  &::-webkit-search-cancel-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    font-family: 'gonzocons' !important;
-  
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content:"\e913";
-  }
 }
 
 .input-group {
   display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 200px 1fr;
   grid-template-areas:
     "label input"
     "none help"
   ;
+  grid-gap: @input-margin;
   margin: 20px 0;
-  max-width: 500px;
+  max-width: 720px;
 
   label {
     grid-area: label;
     font-weight: bold;
     text-align: right;
-    margin-right: @input-margin;
+    line-height: 100%;
+    vertical-align: middle;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
   }
 
   input {
     grid-area: input;
     text-align: left;
-    margin-left: @input-margin;
-    margin-bottom: @input-margin;
   }
 
   .help {
     grid-area: help;
     color: @grey-7;
-    margin-left: @input-margin;
+    
+    .error{
+      &::before {
+        .fa-icon();
+        content: @fa-var-exclamation-triangle;
+        margin-right: 5px;
+      }
+      color: @danger;
+    }
   }
 
   &.invalid {
@@ -73,16 +72,6 @@ input {
     input {
       border-color: @danger;
       .focus-active(@danger);
-    }
-
-    .help {
-      color: @danger;
-
-      .error::before {
-        .fa-icon();
-        content: @fa-var-exclamation-triangle;
-        margin-right: 10px;
-      }
     }
   }
 }

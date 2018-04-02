@@ -1,8 +1,11 @@
 import flatitude from './flatitude.js';
 import {
   ActionDropdown,
+  Alert,
   Button,
   DropdownArea,
+  DropdownButton,
+  GrowlArea,
   LoadingField,
   Modal,
   Nav,
@@ -22,6 +25,12 @@ describe('flatitude', () => {
     expect(fl.ActionDropdown).toBeDefined();
   });
 
+  it('exposes Alert', () => {
+    expect(flatitude.Alert).toBeDefined();
+    expect(Alert).toBeDefined();
+    expect(fl.Alert).toBeDefined();
+  });
+
   it('exposes Button', () => {
     expect(flatitude.Button).toBeDefined();
     expect(Button).toBeDefined();
@@ -32,6 +41,18 @@ describe('flatitude', () => {
     expect(flatitude.DropdownArea).toBeDefined();
     expect(DropdownArea).toBeDefined();
     expect(fl.DropdownArea).toBeDefined();
+  });
+
+  it('exposes DropdownButton', () => {
+    expect(flatitude.DropdownButton).toBeDefined();
+    expect(DropdownButton).toBeDefined();
+    expect(fl.DropdownButton).toBeDefined();
+  });
+
+  it('exposes GrowlArea', () => {
+    expect(flatitude.GrowlArea).toBeDefined();
+    expect(GrowlArea).toBeDefined();
+    expect(fl.GrowlArea).toBeDefined();
   });
 
   it('exposes LoadingField', () => {
