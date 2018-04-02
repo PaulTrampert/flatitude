@@ -1,5 +1,4 @@
 import React from 'react';
-import RenderInBody from '../util/RenderInBody.jsx';
 import growler from './growler.js';
 import Growl from './Growl.jsx';
 
@@ -44,17 +43,15 @@ class GrowlArea extends React.Component {
     } = this.state;
 
     return (
-      <RenderInBody>
-        <div className="growl-area">
-          {
-            growls.map(g => (
-              <Growl key={g.id} id={g.id} type={g.type} onDismiss={this.handleDismiss}>
-                {g.message}
-              </Growl>
-            ))
-          }
-        </div>
-      </RenderInBody>
+      <div className="growl-area">
+        {
+          growls.map(g => (
+            <Growl key={g.id} id={g.id} type={g.type} onDismiss={this.handleDismiss}>
+              {g.message}
+            </Growl>
+          ))
+        }
+      </div>
     );
   }
 }

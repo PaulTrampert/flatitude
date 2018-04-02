@@ -5,17 +5,19 @@ import GrowlArea from '../src/alerts/GrowlArea.jsx';
 import growler from '../src/alerts/growler.js';
 
 const growlTypes = [
-  'danger',
   'success',
+  'danger',
   'warning',
   'info'
 ];
 
-function rnd() {
-  return (Math.random() * 100) % 4;
-}
-
 class Alerts extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.idx = 0;
+  }
+
   render() {
     return (
       <div>
@@ -31,9 +33,13 @@ class Alerts extends React.Component {
         <h2>Growls</h2>
         <Button type="primary" onClick={() => {
           growler.growl({
-            type: growlTypes[rnd()],
+            type: growlTypes[this.idx],
             message: "I'm a growl"
           });
+          this.idx++;
+          if (this.idx >= 4) {
+            this.idx = 0;
+          }
         }}>Show Growl</Button>
       </div>
     );
