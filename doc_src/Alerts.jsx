@@ -2,6 +2,18 @@ import React from 'react';
 import Alert from '../src/alerts/Alert.jsx';
 import Button from '../src/buttons/Button.jsx';
 import GrowlArea from '../src/alerts/GrowlArea.jsx';
+import growler from '../src/alerts/growler.js';
+
+const growlTypes = [
+  'danger',
+  'success',
+  'warning',
+  'info'
+];
+
+function rnd() {
+  return (Math.random() * 100) % 4;
+}
 
 class Alerts extends React.Component {
   render() {
@@ -17,7 +29,12 @@ class Alerts extends React.Component {
         <Alert type="danger" action={{label: 'dismiss', onClick: () => {}}}>This is a danger alert with an action.</Alert>
 
         <h2>Growls</h2>
-        <Button type="primary">Show Growl</Button>
+        <Button type="primary" onClick={() => {
+          growler.growl({
+            type: growlTypes[rnd()],
+            message: "I'm a growl"
+          });
+        }}>Show Growl</Button>
       </div>
     );
   }

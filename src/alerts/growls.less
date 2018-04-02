@@ -1,3 +1,14 @@
+@keyframes growl-fadein {
+  from { opacity: 0; }
+  to { opacity: 1 }
+}
+
+@keyframes growl-fadeout {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { height: 0; }
+}
+
 .growl-area {
   position: fixed;
   bottom: 0;
@@ -11,6 +22,7 @@
     box-shadow: 5px 5px 30px -5px;
     background-color: white;
     color: unset;
+    animation: fadein 1s;
 
     .message {
       flex: 1 1 auto;

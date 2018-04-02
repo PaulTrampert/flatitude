@@ -6,8 +6,10 @@ import classnames from 'classnames';
 class Growl extends React.Component {
   render() {
     let {
+      id,
       children,
-      type
+      type,
+      onDismiss
     } = this.props;
     return (
       <div className={classnames("growl", type)}>
@@ -17,7 +19,7 @@ class Growl extends React.Component {
           {children}
         </div>
         <div className="dismiss">
-          <button>
+          <button onClick={() => onDismiss(id)}>
           </button>
         </div>
       </div>
@@ -26,8 +28,10 @@ class Growl extends React.Component {
 }
 
 Growl.propTypes = {
+  id: PropTypes.any.isRequired,
   children: PropTypes.node,
-  type: ColorTypes.isRequired
+  type: ColorTypes.isRequired,
+  onDismiss: PropTypes.func.isRequired
 };
 
 export default Growl;
