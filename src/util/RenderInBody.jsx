@@ -11,6 +11,10 @@ class RenderInBody extends React.Component {
     ReactDOM.render(this.props.children, this.element);
   }
 
+  componentDidUpdate = () => {
+    ReactDOM.render(this.props.children, this.element);
+  }
+
   componentWillUnmount = () => {
     if (this.element) {
       ReactDOM.unmountComponentAtNode(this.element);
