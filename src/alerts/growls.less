@@ -1,0 +1,91 @@
+.growl-area {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  .growl {
+    display: flex;
+    margin: 5px;
+    min-width: 350px;
+    min-height: 75px;
+    box-shadow: 5px 5px 30px -5px;
+    background-color: white;
+    color: unset;
+
+    .message {
+      flex: 1 1 auto;
+      padding: 5px;
+    }
+
+    .dismiss{
+      padding: 5px;
+
+      button {
+        background: white;
+        color: @grey-9;
+        padding: 0;
+        margin: 0;
+
+        &::before {
+          .fa-icon();
+          content: @fa-var-times;
+        }
+      }
+    }
+
+    .icon {
+      color: @grey-e;
+      font-size: 75px;
+      min-width: 75px;
+      text-align: center;
+    }
+
+    &.success {
+      .icon {
+        background-color: @success;
+        &::before {
+          .fa-icon();
+          content: @fa-var-check;
+        }
+      }
+      border: 1px solid @success;
+    }
+
+    &.danger {
+      .icon {
+        background-color: @danger;
+
+        &::before {
+          .fa-icon();
+          content: @fa-var-times-circle-o;
+        }
+      }
+      border: 1px solid @danger;
+    }
+
+    &.warning {
+      .icon {
+        background-color: @warning;
+        color: @grey-1;
+        &::before {
+          .fa-icon();
+          content: @fa-var-exclamation-circle;
+        }
+      }
+
+      border: 1px solid @warning;
+    }
+
+    &.info {
+      .icon {
+        background-color: @info;
+        &::before {
+          .fa-icon();
+          content: @fa-var-info-circle;
+        }
+      }
+
+      border: 1px solid @info;
+    }
+  }
+}

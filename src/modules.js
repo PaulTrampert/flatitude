@@ -3,6 +3,7 @@ export { default as Alert } from './alerts/Alert.jsx';
 export { default as Button} from './buttons/Button.jsx';
 export { default as DropdownArea } from './util/DropdownArea.jsx';
 export { default as DropdownButton } from './buttons/DropdownButton.jsx';
+export { default as GrowlArea } from './alerts/GrowlArea.jsx';
 export { default as LoadingField } from './loading/LoadingField.jsx';
 export { default as Modal} from './modals/Modal.jsx';
 export { default as Nav } from './layout/Nav.jsx';
