@@ -28,6 +28,15 @@ class GrowlArea extends React.Component {
     });
   }
 
+  handleExpire = (id) => {
+    let growls = this.state.growls.slice();
+    let idx = growls.findIndex(g => g.id === id);
+    growls.splice(idx, 1)[0];
+    this.setState({
+      growls
+    });
+  }
+
   handleDismiss = (id) => {
     let growls = this.state.growls.slice();
     let idx = growls.findIndex(g => g.id === id);
@@ -48,7 +57,7 @@ class GrowlArea extends React.Component {
         <div className="growl-area">
           {
             growls.map(g => (
-              <Growl key={g.id} id={g.id} type={g.type} onDismiss={this.handleDismiss}>
+              <Growl key={g.id} id={g.id} type={g.type} onDismiss={this.handleDismiss} onExpire={this.handleExpire}>
                 {g.message}
               </Growl>
             ))
