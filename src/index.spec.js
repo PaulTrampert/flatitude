@@ -6,6 +6,7 @@ import {
   DropdownArea,
   DropdownButton,
   GrowlArea,
+  growler,
   LoadingField,
   Modal,
   Nav,
@@ -53,6 +54,12 @@ describe('flatitude', () => {
     expect(flatitude.GrowlArea).toBeDefined();
     expect(GrowlArea).toBeDefined();
     expect(fl.GrowlArea).toBeDefined();
+  });
+
+  it('exposes growler', () => {
+    expect(flatitude.growler).toBeDefined();
+    expect(growler).toBeDefined();
+    expect(fl.growler).toBeDefined();
   });
 
   it('exposes LoadingField', () => {
