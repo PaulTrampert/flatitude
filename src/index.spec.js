@@ -3,6 +3,7 @@ import {
   ActionDropdown,
   Alert,
   Button,
+  Checkbox,
   DropdownArea,
   DropdownButton,
   GrowlArea,
@@ -36,6 +37,12 @@ describe('flatitude', () => {
     expect(flatitude.Button).toBeDefined();
     expect(Button).toBeDefined();
     expect(fl.Button).toBeDefined();
+  });
+
+  it('exposes Checkbox', () => {
+    expect(flatitude.Checkbox).toBeDefined();
+    expect(Checkbox).toBeDefined();
+    expect(fl.Checkbox).toBeDefined();
   });
 
   it('exposes DropdownArea', () => {
