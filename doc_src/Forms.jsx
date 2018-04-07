@@ -1,4 +1,5 @@
 import React from 'react';
+import {Checkbox} from '../src/flatitude.js';
 
 function Forms() {
   return (
@@ -18,6 +19,11 @@ function Forms() {
           <div className="error">Another error</div>
         </div>
       </div>
+
+      <h2>Checkbox</h2>
+      <Checkbox>This is a checkbox</Checkbox>
+      <Checkbox disabled>This is a disabled checkbox</Checkbox>
+      <Checkbox indeterminate>This is an indeterminate checkbox</Checkbox>
     </div>
   );
 }
