@@ -2,6 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import Tile from './Tile.jsx';
 import DropdownArea from '../util/DropdownArea.jsx';
+import Checkbox from '../forms/Checkbox.jsx';
 
 describe("Tile", () => {
   let props;
@@ -57,23 +58,23 @@ describe("Tile", () => {
 
     it('renders a checkbox in tile-head', () => {
       let subject = shallow(<Tile {...props} />);
-      expect(subject.find('.tile-head').find('input.selector[type="checkbox"]').length).toBe(1);
+      expect(subject.find('.tile-head').find(Checkbox).length).toBe(1);
     });
 
     it('binds the isSelected prop to the checkbox checked prop', () => {
       let subject = shallow(<Tile {...props} />);
-      expect(subject.find('.tile-head').find('input.selector[type="checkbox"]').props().checked).toBe(true);
+      expect(subject.find('.tile-head').find(Checkbox).props().value).toBe(true);
     });
 
     it('binds the onChange event of the checkbox', () => {
       let subject = shallow(<Tile {...props} />);
-      expect(subject.find('.tile-head').find('input.selector[type="checkbox"]').props().onChange).toBe(subject.instance().handleSelectorClick);
+      expect(subject.find('.tile-head').find(Checkbox).props().onChange).toBe(subject.instance().handleSelectorClick);
     });
 
     describe('handleSelectorClick', () => {
-      it('calls onSelect with the negation of isSelected', () => {
+      it('calls onSelect with the value passed to handleSelectorClick', () => {
         let subject = shallow(<Tile {...props} />).instance();
-        subject.handleSelectorClick();
+        subject.handleSelectorClick(false);
         expect(props.onSelect).toHaveBeenCalledWith(false);
       });
     });
