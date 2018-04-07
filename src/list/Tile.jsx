@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import DropdownArea from '../util/DropdownArea.jsx';
 import getPassthroughProps from '../util/getPassthroughProps.js';
+import Checkbox from '../forms/Checkbox.jsx';
 
 class Tile extends React.Component {
-  handleSelectorClick = () => {
+  handleSelectorClick = (isSelected) => {
     let {
-      onSelect,
-      isSelected
+      onSelect
     } = this.props;
 
-    onSelect(!isSelected);
+    onSelect(isSelected);
   }
 
   render() {
@@ -46,7 +46,7 @@ class Tile extends React.Component {
         {
           (onSelect || actions) && (
             <div className="tile-head">
-              {onSelect && <input className="selector" type="checkbox" checked={isSelected} onChange={this.handleSelectorClick} />}
+              {onSelect && <Checkbox value={isSelected} onChange={this.handleSelectorClick} className="selector" />}
               {actions && <DropdownArea className="fa fa-ellipsis-v actions" dropdown={actions} />}
             </div>
           )
