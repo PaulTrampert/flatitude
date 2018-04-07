@@ -13,6 +13,7 @@ import {
   Nav,
   PagingControls,
   ProgressBar,
+  RadioButton,
   SearchBox,
   Spinner,
   Th,
@@ -97,6 +98,12 @@ describe('flatitude', () => {
     expect(flatitude.ProgressBar).toBeDefined();
     expect(ProgressBar).toBeDefined();
     expect(fl.ProgressBar).toBeDefined();
+  });
+
+  it("exposes RadioButton", () => {
+    expect(flatitude.RadioButton).toBeDefined();
+    expect(RadioButton).toBeDefined();
+    expect(fl.RadioButton).toBeDefined();
   });
 
   it('exposes SearchBox', () => {

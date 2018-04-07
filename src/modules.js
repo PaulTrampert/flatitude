@@ -11,6 +11,7 @@ export { default as Modal} from './modals/Modal.jsx';
 export { default as Nav } from './layout/Nav.jsx';
 export { default as PagingControls } from './list/PagingControls.jsx';
 export { default as ProgressBar } from './loading/ProgressBar.jsx';
+export { default as RadioButton } from './forms/RadioButton.jsx';
 export { default as SearchBox } from './list/SearchBox.jsx';
 export { default as Spinner } from './loading/Spinner.jsx';
 export { default as Th } from './list/Th.jsx';
