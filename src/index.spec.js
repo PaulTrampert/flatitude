@@ -3,6 +3,7 @@ import {
   ActionDropdown,
   Alert,
   Button,
+  Checkbox,
   DropdownArea,
   DropdownButton,
   GrowlArea,
@@ -12,6 +13,7 @@ import {
   Nav,
   PagingControls,
   ProgressBar,
+  RadioButton,
   SearchBox,
   Spinner,
   Th,
@@ -36,6 +38,12 @@ describe('flatitude', () => {
     expect(flatitude.Button).toBeDefined();
     expect(Button).toBeDefined();
     expect(fl.Button).toBeDefined();
+  });
+
+  it('exposes Checkbox', () => {
+    expect(flatitude.Checkbox).toBeDefined();
+    expect(Checkbox).toBeDefined();
+    expect(fl.Checkbox).toBeDefined();
   });
 
   it('exposes DropdownArea', () => {
@@ -90,6 +98,12 @@ describe('flatitude', () => {
     expect(flatitude.ProgressBar).toBeDefined();
     expect(ProgressBar).toBeDefined();
     expect(fl.ProgressBar).toBeDefined();
+  });
+
+  it("exposes RadioButton", () => {
+    expect(flatitude.RadioButton).toBeDefined();
+    expect(RadioButton).toBeDefined();
+    expect(fl.RadioButton).toBeDefined();
   });
 
   it('exposes SearchBox', () => {
