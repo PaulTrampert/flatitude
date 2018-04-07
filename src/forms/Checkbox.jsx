@@ -10,6 +10,7 @@ class Checkbox extends React.Component {
 
   checkboxRef = (ref) => {
     this.checkbox = ref;
+    this.checkbox.indeterminate = this.props.indeterminate;
   }
 
   handleChange = (event) => {
