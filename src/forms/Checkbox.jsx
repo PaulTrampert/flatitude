@@ -4,8 +4,12 @@ import classnames from 'classnames';
 
 class Checkbox extends React.Component {
 
+  componentDidUpdate = () => {
+    this.checkbox.indeterminate = this.props.indeterminate;
+  }
+
   checkboxRef = (ref) => {
-    ref.indeterminate = this.props.indeterminate;
+    this.checkbox = ref;
   }
 
   handleChange = (event) => {
