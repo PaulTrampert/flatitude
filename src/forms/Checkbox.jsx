@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import getPassthroughProps from '../util/getPassthroughProps';
 
 class Checkbox extends React.Component {
 
@@ -24,12 +25,11 @@ class Checkbox extends React.Component {
       children,
       value,
       disabled,
-      className,
-      ...rest
+      className
     } = this.props;
 
     return (
-      <label className={classnames('checkbox', className)} {...rest}>
+      <label className={classnames('checkbox', className)} {...getPassthroughProps(this)}>
         <input ref={this.checkboxRef} type="checkbox" checked={value} onChange={this.handleChange} disabled={disabled} />
         <i></i>
         {children}
