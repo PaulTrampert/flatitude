@@ -23,20 +23,15 @@ input {
   }
 }
 
-.input-group {
+.form-fields {
   display: -ms-grid;
   display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-template-areas:
-    "label input"
-    "none help"
-  ;
+  grid-template-columns: minmax(0, max-content) 1fr;
   grid-gap: @input-margin;
-  margin: 20px 0;
-  max-width: 720px;
 
   label {
-    grid-area: label;
+    grid-column-start: 1;
+    grid-column-end: 2;
     font-weight: bold;
     text-align: right;
     line-height: 100%;
@@ -45,33 +40,51 @@ input {
     padding-bottom: 0.5em;
   }
 
-  input {
-    grid-area: input;
+  .input-group {
+    grid-column-start: 2;
+    grid-column-end: 3;
     text-align: left;
-  }
 
-  .help {
-    grid-area: help;
-    color: @grey-7;
-    
-    .error{
-      &::before {
-        .fa-icon();
-        content: @fa-var-exclamation-triangle;
-        margin-right: 5px;
+    &.invalid {
+      input {
+        .focus-active(@danger);
+        border-color: @danger;
       }
-      color: @danger;
-    }
-  }
-
-  &.invalid {
-    label {
-      color: @danger;
     }
 
-    input {
-      border-color: @danger;
-      .focus-active(@danger);
+    .help {
+      grid-area: help;
+      color: @grey-7;
+      
+      .success {
+        &::before{
+          .fa-icon();
+          content: @fa-var-check-circle;
+          margin-right: 5px;
+        }
+
+        color: @success;
+      }
+
+      .warning {
+        &::before{
+          .fa-icon();
+          content: @fa-var-exclamation-triangle;
+          margin-right: 5px;
+        }
+
+        color: @warning;
+      }
+
+      .danger,
+      .error {
+        &::before {
+          .fa-icon();
+          content: @fa-var-exclamation-triangle;
+          margin-right: 5px;
+        }
+        color: @danger;
+      }
     }
   }
 }
