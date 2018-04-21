@@ -15,33 +15,49 @@ class Forms extends React.Component {
       <div>
         <h1>Forms</h1>
         <h2>Basic Inputs</h2>
-        <div className="input-group">
+        <div className="form-fields">
           <label>Basic Input</label>
-          <input />
-          <div className="help">This is a basic form field</div>
-        </div>
-        <div className="input-group invalid">
-          <label>Invalid Input</label>
-          <input />
-          <div className="help">
-            <div className="error">This field is invalid</div>
-            <div className="error">Another error</div>
+          <div className="input-group">
+            <input />
+            <div className="help">
+              <div>This is a basic input field</div>
+            </div>
           </div>
-        </div>
 
-        <h2>Checkbox</h2>
-        <Checkbox>This is a checkbox</Checkbox>
-        <Checkbox disabled>This is a disabled checkbox</Checkbox>
-        <Checkbox indeterminate>This is an indeterminate checkbox</Checkbox>
+          <label>Validated Input</label>
+          <div className="input-group">
+            <input />
+            <div className="help">
+              <div className="success">This field has passed validation.</div>
+            </div>
+          </div>
 
-        <h2>Radio Buttons</h2>
-        <div>
-          <strong>Selected Value:</strong> {this.state.radioSelection}
+          <label>Warning Input</label>
+          <div className="input-group">
+            <input />
+            <div className="help">
+              <div>Warnings should come after basic help text</div>
+              <div className="warning">This field has a warning.</div>
+            </div>
+          </div>
+
+          <label>Invalid Input</label>
+          <div className="input-group invalid">
+            <input />
+            <div className="help">
+              <div>Warnings should come after basic help text</div>
+              <div className="danger">This field is invalid.</div>
+            </div>
+          </div>
+          <Checkbox>This is a checkbox</Checkbox>
+          <Checkbox disabled>This is a disabled checkbox</Checkbox>
+          <Checkbox indeterminate>This is an indeterminate checkbox</Checkbox>
+
+          <RadioButton name="demo" value="value1" onChange={value => this.setState({radioSelection: value})}>Here&#39;s a radio button</RadioButton>
+          <RadioButton name="demo" value="value2" onChange={value => this.setState({radioSelection: value})}>Here&#39;s another radio button</RadioButton>
+          <RadioButton name="anotherdemo" disabled>Here&#39;s a disabled radio button</RadioButton>
+          <RadioButton name="anotherdemo" disabled selected>Here&#39;s a disabled radio button</RadioButton>
         </div>
-        <RadioButton name="demo" value="value1" onChange={value => this.setState({radioSelection: value})}>Here&#39;s a radio button</RadioButton>
-        <RadioButton name="demo" value="value2" onChange={value => this.setState({radioSelection: value})}>Here&#39;s another radio button</RadioButton>
-        <RadioButton name="anotherdemo" disabled>Here&#39;s a disabled radio button</RadioButton>
-        <RadioButton name="anotherdemo" disabled selected>Here&#39;s a disabled radio button</RadioButton>
       </div>
     );
   }
