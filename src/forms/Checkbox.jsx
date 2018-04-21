@@ -6,12 +6,16 @@ import getPassthroughProps from '../util/getPassthroughProps';
 class Checkbox extends React.Component {
 
   componentDidUpdate = () => {
-    this.checkbox.indeterminate = this.props.indeterminate;
+    if (this.checkbox) {
+      this.checkbox.indeterminate = this.props.indeterminate;
+    }
   }
 
   checkboxRef = (ref) => {
     this.checkbox = ref;
-    this.checkbox.indeterminate = this.props.indeterminate;
+    if (this.checkbox) {
+      this.checkbox.indeterminate = this.props.indeterminate;
+    }
   }
 
   handleChange = (event) => {
