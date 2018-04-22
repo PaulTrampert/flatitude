@@ -29,6 +29,7 @@ input {
   grid-template-columns: minmax(0, max-content) 1fr;
   grid-gap: @input-margin;
 
+
   label {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -44,6 +45,13 @@ input {
     grid-column-start: 2;
     grid-column-end: 3;
     text-align: left;
+
+
+    *:not(input) {
+      line-height: 100%;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
 
     &.invalid {
       input {
