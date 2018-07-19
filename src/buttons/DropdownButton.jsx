@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Button from './Button.jsx';
 import ButtonTypes from './ButtonTypes.js';
-import window from '../util/window.js';
 import document from '../util/document.js';
 import RenderInBody from '../util/RenderInBody.jsx';
 
@@ -19,15 +18,6 @@ class DropdownButton extends React.Component {
 
   componentDidMount = () => {
     document.addEventListener('mousedown', this.handleClickOutside);
-    if (this.button) {
-      let buttonElement = ReactDOM.findDOMNode(this.button);
-      let boundingRect = buttonElement.getBoundingClientRect();
-      this.menuStyle = {
-        position: 'absolute',
-        top: boundingRect.bottom + window.scrollY,
-        right: window.outerWidth - (boundingRect.right + window.scrollX)
-      };
-    }
   }
 
   componentWillUnmount = () => {
@@ -41,6 +31,13 @@ class DropdownButton extends React.Component {
   }
 
   openMenu = () => {
+    let buttonElement = ReactDOM.findDOMNode(this.button);
+    let boundingRect = buttonElement.getBoundingClientRect();
+    this.menuStyle = {
+      position: 'fixed',
+      top: boundingRect.bottom,
+      left: boundingRect.left
+    };
     this.setState({isOpen: true});
   }
 

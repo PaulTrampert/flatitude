@@ -5,17 +5,11 @@ import DropdownButtonLoader from 'inject-loader!./DropdownButton.jsx';
 
 describe('DropdownButtonLoader', () => {
   let DropdownButton;
-  let window;
   let document;
   let buttonElement;
   let ReactDOM;
 
   beforeEach(() => {
-    window = {
-      scrollY: 1,
-      scrollX: 2,
-      outerWidth: 3
-    };
     document = {
       addEventListener: jasmine.createSpy('addEventListener'),
       removeEventListener: jasmine.createSpy('removeEventListener')
@@ -30,7 +24,6 @@ describe('DropdownButtonLoader', () => {
     };
 
     DropdownButton = DropdownButtonLoader({
-      '../util/window.js': window,
       '../util/document.js': document,
       'react-dom': ReactDOM
     }).default;
