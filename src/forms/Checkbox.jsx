@@ -34,7 +34,7 @@ class Checkbox extends React.Component {
 
     return (
       <label className={classnames('checkbox', className)} {...getPassthroughProps(this)}>
-        <input ref={this.checkboxRef} type="checkbox" checked={value} onChange={this.handleChange} disabled={disabled} />
+        <input ref={this.checkboxRef} type="checkbox" checked={value} onChange={this.handleChange} disabled={disabled} value="on" />
         <i></i>
         {children}
       </label>
