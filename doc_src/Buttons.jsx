@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActionDropdown, Button, DropdownButton } from '../src/flatitude.js';
+import { ActionDropdown, DropdownButton } from '../src/flatitude.js';
 
 function Buttons() {
   return (
@@ -7,21 +7,21 @@ function Buttons() {
       <h1>Buttons</h1>
       <h2>Default</h2>
       <div style={{display: 'inline'}}>
-        <Button>Default</Button>
-        <Button disabled={true}>Disabled</Button>
+        <button>Default</button>
+        <button disabled={true}>Disabled</button>
       </div>
       <h2>Primary</h2>
       <div style={{display: 'inline'}}>
-        <Button className="primary">Primary</Button>
-        <Button className="primary" disabled={true}>Disabled</Button>
+        <button className="primary">Primary</button>
+        <button className="primary" disabled={true}>Disabled</button>
       </div>
       <h2>Danger</h2>
       <div style={{display: 'inline'}}>
-        <Button className="danger">Danger</Button>
-        <Button className="danger" disabled={true}>Disabled</Button>
+        <button className="danger">Danger</button>
+        <button className="danger" disabled={true}>Disabled</button>
       </div>
 
-      <h2>Not Technically a Button</h2>
+      <h2>Not Technically a button</h2>
       <div style={{display: 'inline'}}>
         <a className="btn">Link</a>
         <a className="btn" disabled={true}>Link</a>
@@ -42,7 +42,7 @@ function Buttons() {
         <a href="">Menu Item 3</a>
       </ActionDropdown>
     </div>
-  )
+  );
 }
 
 export default Buttons;

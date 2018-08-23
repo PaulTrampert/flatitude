@@ -1,6 +1,5 @@
 export { default as ActionDropdown} from './buttons/ActionDropdown.jsx';
 export { default as Alert } from './alerts/Alert.jsx';
-export { default as Button} from './buttons/Button.jsx';
 export { default as Checkbox } from './forms/Checkbox.jsx';
 export { default as DropdownArea } from './util/DropdownArea.jsx';
 export { default as DropdownButton } from './buttons/DropdownButton.jsx';

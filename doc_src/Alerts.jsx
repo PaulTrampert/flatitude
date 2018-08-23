@@ -1,6 +1,5 @@
 import React from 'react';
 import Alert from '../src/alerts/Alert.jsx';
-import Button from '../src/buttons/Button.jsx';
 import GrowlArea from '../src/alerts/GrowlArea.jsx';
 import growler from '../src/alerts/growler.js';
 
@@ -31,7 +30,7 @@ class Alerts extends React.Component {
         <Alert type="danger" action={{label: 'dismiss', onClick: () => {}}}>This is a danger alert with an action.</Alert>
 
         <h2>Growls</h2>
-        <Button type="primary" onClick={() => {
+        <button type="button" onClick={() => {
           growler.growl({
             type: growlTypes[this.idx],
             message: "I'm a growl"
@@ -40,7 +39,7 @@ class Alerts extends React.Component {
           if (this.idx >= 4) {
             this.idx = 0;
           }
-        }}>Show Growl</Button>
+        }} className="primary">Show Growl</button>
       </div>
     );
   }
