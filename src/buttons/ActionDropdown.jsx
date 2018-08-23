@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Button from './Button.jsx';
 import DropdownButton from './DropdownButton.jsx';
 import ButtonTypes from './ButtonTypes.js';
 
@@ -18,7 +17,7 @@ class ActionDropdown extends React.Component {
 
     return (
       <span className="action-dropdown">
-        <Button onClick={onClick} type={type} className={classnames(['action', className])}>{title}</Button>
+        <button onClick={onClick} type="button" className={classnames(['action', className, type])}>{title}</button>
         <DropdownButton type={type} className={classnames(['drop', className])}>{children}</DropdownButton>
       </span>
     );

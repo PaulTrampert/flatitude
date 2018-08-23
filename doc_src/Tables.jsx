@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../src/buttons/Button.jsx';
 import Th from '../src/list/Th.jsx';
 import PagingControls from '../src/list/PagingControls.jsx';
 import SearchBox from '../src/list/SearchBox.jsx';
@@ -77,7 +76,7 @@ class Tables extends React.Component {
     } = this.state;
 
     let searchedData = data.filter(d => d.id.includes(searchTerm));
-    let pagedData = searchedData.slice(offset, offset + size)
+    let pagedData = searchedData.slice(offset, offset + size);
     return (
       <div>
         <h1>Tables</h1>
@@ -99,7 +98,7 @@ class Tables extends React.Component {
                   <tr key={d.id}>
                     <td>{d.id}</td>
                     <td className="right">{d.number}</td>
-                    <td className="center"><Button type="danger"><i className="fa fa-trash"></i></Button></td>
+                    <td className="center"><button className="danger"><i className="fa fa-trash"></i></button></td>
                   </tr>
                 ))
             }
