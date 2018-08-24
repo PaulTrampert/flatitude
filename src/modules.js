@@ -1,5 +1,7 @@
 export { default as ActionDropdown} from './buttons/ActionDropdown.jsx';
 export { default as Alert } from './alerts/Alert.jsx';
+export { default as AlertArea } from './alerts/AlertArea.jsx';
+export { default as alerter } from './alerts/alerter.js';
 export { default as Checkbox } from './forms/Checkbox.jsx';
 export { default as DropdownArea } from './util/DropdownArea.jsx';
 export { default as DropdownButton } from './buttons/DropdownButton.jsx';

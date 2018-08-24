@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import ColorTypes from '../colors/ColorTypes.js';
+import AlertAction from './AlertAction.jsx';
 
 class Alert extends React.Component {
 
@@ -28,10 +29,11 @@ class Alert extends React.Component {
 
   render() {
     let {
+      id,
       type,
       children,
       className,
-      action
+      actions
     } = this.props;
 
     return (
@@ -43,12 +45,10 @@ class Alert extends React.Component {
           {children}
         </div>
         {
-          action &&
-          (
-            <a className="action" onClick={action.onClick}>
-              {action.label}
-            </a>
-          )
+          actions &&
+          actions.map((action, idx) => (
+            <AlertAction {...action} key={idx} alertId={id} />
+          ))
         }
       </div>
     );
@@ -56,13 +56,14 @@ class Alert extends React.Component {
 }
 
 Alert.propTypes = {
+  id: PropTypes.number,
   type: ColorTypes.isRequired,
   children: PropTypes.node,
   className: PropTypes.string,
-  action: PropTypes.shape({
+  actions: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.node.isRequired,
     onClick: PropTypes.func.isRequired
-  })
+  }))
 };
 
 export default Alert;
