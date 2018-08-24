@@ -25,9 +25,9 @@ class Alerts extends React.Component {
         <Alert type="info">This is an info alert with no action.</Alert>
         <Alert type="success">This is a success alert with no action.</Alert>
         <Alert type="warning">This is a warning alert with no action.</Alert>
-        <Alert type="warning" action={{label: 'dismiss', onClick: () => {}}}>This is a warning alert with an action.</Alert>
+        <Alert type="warning" actions={[{label: 'dismiss', onClick: () => {}}]}>This is a warning alert with an action.</Alert>
         <Alert type="danger">This is a danger alert with no action.</Alert>
-        <Alert type="danger" action={{label: 'dismiss', onClick: () => {}}}>This is a danger alert with an action.</Alert>
+        <Alert type="danger" actions={[{label: 'dismiss', onClick: () => {}}]}>This is a danger alert with an action.</Alert>
 
         <h2>Growls</h2>
         <button type="button" onClick={() => {
