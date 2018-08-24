@@ -1,8 +1,8 @@
 /* eslint react/no-find-dom-node: 0 */
+import classnames from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import Button from './Button.jsx';
 import ButtonTypes from './ButtonTypes.js';
 import document from '../util/document.js';
 import RenderInBody from '../util/RenderInBody.jsx';
@@ -75,10 +75,10 @@ class DropdownButton extends React.Component {
     } = this.state;
 
     return (
-      <Button 
+      <button 
         ref={this.setButtonRef}
-        type={type} 
-        className={className} 
+        type="button" 
+        className={classnames([className, type])} 
         onClick={this.openMenu} 
         {...rest}
       >
@@ -100,7 +100,7 @@ class DropdownButton extends React.Component {
             </div>
           </RenderInBody>
         }
-      </Button>
+      </button>
     );
   }
 }

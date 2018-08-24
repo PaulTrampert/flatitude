@@ -36,11 +36,11 @@ describe('DropdownButtonLoader', () => {
     });
   
     it('renders a button with the correct classes', () => {
-      expect(subject.at(0).props().className).toBe('derp');
+      expect(subject.at(0).props().className).toBe('derp primary');
     });
 
     it('renders the correct type of button', () => {
-      expect(subject.at(0).props().type).toBe('primary');
+      expect(subject.at(0).props().type).toBe('button');
     });
   
     it('adds arbitrary properties to the button', () => {
