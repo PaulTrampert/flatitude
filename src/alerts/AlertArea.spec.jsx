@@ -62,6 +62,7 @@ describe('AlertArea', () => {
     let instance;
     let alert1;
     let alert2;
+    let alert3;
 
     beforeEach(() => {
       alert1 = {
@@ -74,28 +75,43 @@ describe('AlertArea', () => {
         type: 'info',
         channel: 'herp'
       };
+      alert3 = {
+        id: 3,
+        type: 'danger',
+        channel: 'errors'
+      };
 
       subject = shallow(<AlertArea />);
       instance = subject.instance();
       instance.handleAlert(alert1);
       instance.handleAlert(alert2);
+      instance.handleAlert(alert3);
     });
 
     it('removes the alert when given an id', () => {
-      expect(subject.state().alerts.length).toBe(2);
+      expect(subject.state().alerts.length).toBe(3);
 
       instance.handleDismiss({id: alert1.id});
 
-      expect(subject.state().alerts.length).toBe(1);
+      expect(subject.state().alerts.length).toBe(2);
       expect(subject.state().alerts[0]).toBe(alert2);
     });
 
     it('removes all alerts when not given an id', () => {
-      expect(subject.state().alerts.length).toBe(2);
+      expect(subject.state().alerts.length).toBe(3);
 
       instance.handleDismiss({});
 
       expect(subject.state().alerts.length).toBe(0);
+    });
+
+    it('removes all alerts from a given channel if given a channel', () => {
+      expect(subject.state().alerts.length).toBe(3);
+
+      instance.handleDismiss({channel: 'herp'});
+
+      expect(subject.state().alerts.length).toBe(1);
+      expect(subject.state().alerts[0]).toBe(alert3);
     });
   });
 
