@@ -6,7 +6,7 @@ import alerter from './alerter.js';
 class AlertArea extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       alerts: []
     };
@@ -32,13 +32,16 @@ class AlertArea extends React.Component {
     }
   }
 
-  handleDismiss = ({id}) => {
+  handleDismiss = ({id, channel}) => {
     let {
-      alerts
+      alerts,
     } = this.state;
 
     this.setState({
-      alerts: alerts.filter(a => id && a.id !== id)
+      alerts: alerts.filter(a =>
+        (id && a.id !== id) ||
+        (channel && a.channel !== channel)
+      )
     });
   }
 

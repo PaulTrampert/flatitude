@@ -19,8 +19,8 @@ class Alerter {
     this.alertEvents.publish(alertMessage);
   }
 
-  dismiss = (id) => {
-    this.dismissEvents.publish({id});
+  dismiss = (id, channel) => {
+    this.dismissEvents.publish({id, channel});
   }
 
   subscribe = (alertHandler, dismissHandler) => {
