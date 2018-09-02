@@ -63,7 +63,7 @@ pipeline {
 					'flatitude',
 					releaseInfo,
 					'v',
-					'github_token'
+					'Github User/Pass'
 				)
 			}
 		}
