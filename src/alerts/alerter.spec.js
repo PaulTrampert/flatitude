@@ -49,9 +49,9 @@ describe('Alerter', () => {
 
   describe('dismiss', () => {
     it('publishes the dismiss event', () => {
-      subject.dismiss(1);
+      subject.dismiss(1, 'any');
 
-      expect(dismissEvents.publish).toHaveBeenCalledWith({id: 1});
+      expect(dismissEvents.publish).toHaveBeenCalledWith({id: 1, channel: 'any'});
     });
   });
 
