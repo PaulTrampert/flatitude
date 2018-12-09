@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const {dependencies, peerDependencies} = require('./package.json');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { dependencies, peerDependencies } = require('./package.json');
 const externals = Object.keys(dependencies || {}).concat(Object.keys(peerDependencies || {}));
 
 const SRC_DIR = path.resolve(__dirname, 'src');
@@ -40,38 +40,34 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: {
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
             loader: 'css-loader',
             options: {
-              minimize: PROD,
               sourcemap: true
             }
           }
-        })
+        ]
       },
-      { 
+      {
         test: /\.less$/,
         include: SRC_DIR,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                minimize: PROD,
-                sourceMap: true,
-              }
-            },
-            {
-              loader: 'less-loader',
-              options: {
-                sourceMap: true
-              }
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
             }
-          ]
-        })
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       },
       {
         test: /\.(eot|svg|ttf|woff2?)$/,
@@ -83,6 +79,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('[name].css')
+    new MiniCssExtractPlugin({
+      filename: "[name].css"
+    })
   ]
 };

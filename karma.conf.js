@@ -3,6 +3,7 @@
 let webpack = require('./webpack.config.js');
 delete webpack.externals;
 webpack.devtool = 'inline-sourcemap';
+webpack.mode = 'development';
 
 const chromeLauncher = process.platform === 'win32' ? 'ChromeHeadless' : 'ChromiumHeadless';
 
