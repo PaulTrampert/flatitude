@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { dependencies, peerDependencies } = require('./package.json');
@@ -10,6 +9,7 @@ const PROD = process.env.NODE_ENV === 'production';
 
 module.exports = {
   devtool: 'source-map',
+  mode: 'production',
   entry: {
     flatitude: path.resolve(SRC_DIR, 'flatitude.js')
   },
@@ -41,7 +41,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          PROD ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -54,7 +54,7 @@ module.exports = {
         test: /\.less$/,
         include: SRC_DIR,
         use: [
-          MiniCssExtractPlugin.loader,
+          PROD ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
