@@ -3,6 +3,7 @@
 let webpack = require('./webpack.config.js');
 delete webpack.externals;
 webpack.devtool = 'inline-sourcemap';
+webpack.mode = 'development';
 
 const chromeLauncher = process.platform === 'win32' ? 'ChromeHeadless' : 'ChromiumHeadless';
 
@@ -43,7 +44,7 @@ module.exports = function(config) {
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['mocha'],
     mochaReporter: {
-      output: 'minimal'
+      //output: 'minimal'
     },
     junitReporter: {
       outputDir: 'testReports',
