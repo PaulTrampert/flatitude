@@ -23,7 +23,7 @@ Pill.propTypes = {
 };
 
 Pill.defaultProps = {
-  type: 'info'
+  type: 'primary'
 };
 
 export default Pill;
