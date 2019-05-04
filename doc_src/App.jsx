@@ -16,6 +16,7 @@ import Modals from './Modals.jsx';
 import Tables from './Tables.jsx';
 import Tiles from './Tiles.jsx';
 import Typography from './Typography.jsx';
+import Pills from './Pills.jsx';
 
 let navTypes = [
   'left-nav',
@@ -63,6 +64,7 @@ class App extends React.Component {
             <Link to="/buttons" activeClassName="current">Buttons</Link>
             <Link to="/forms" activeClassName="current">Forms</Link>
             <Link to="/loading" activeClassName="current">Loading States</Link>
+            <Link to="/pills" activeClassName="current">Pills</Link>
             <Link to="/modals" activeClassName="current">Modals</Link>
             <Link to="/tables" activeClassName="current">Tables</Link>
             <Link to="/tiles" activeClassName="current">Tiles</Link>
@@ -77,6 +79,7 @@ class App extends React.Component {
             <Route path="/forms" component={Forms} />
             <Route path="/loading" component={Loading} />
             <Route path="/modals" component={Modals} />
+            <Route path="/pills" component={Pills} />
             <Route path="/tables" component={Tables} />
             <Route path="/tiles" component={Tiles} />
             <Route path="/typography" component={Typography} />
