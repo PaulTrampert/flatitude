@@ -1,7 +1,12 @@
 def releaseInfo
 
 pipeline {
-  agent any;
+  agent {
+		docker {
+			image 'paultrampert/node-chrome-firefox'
+			args "-e HOME=$HOME"
+		}
+	};
 
   options {
     buildDiscarder(logRotator(numToKeepStr:'5'))
@@ -57,14 +62,17 @@ pipeline {
 					packageJson.version = releaseInfo.nextVersion().toString()
 					writeJSON file: 'package.json', json: packageJson, pretty: 2
 				}
-				sh 'npm publish'
-				publishGithubRelease(
-					'PaulTrampert',
-					'flatitude',
-					releaseInfo,
-					'v',
-					'Github User/Pass'
-				)
+				withCredentials([string(credentialsId: 'npmrc', variable: 'NPMRC')]) {
+					writeFile file: ".npmrc", text: NPMRC
+					sh 'npm publish'
+					publishGithubRelease(
+						'PaulTrampert',
+						'flatitude',
+						releaseInfo,
+						'v',
+						'Github User/Pass'
+					)
+				}
 			}
 		}
   }
