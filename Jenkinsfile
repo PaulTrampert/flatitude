@@ -22,6 +22,7 @@ pipeline {
 						'flatitude',
 						'v',
 						'Github User/Pass',
+            'https://api.github.com',
             BRANCH_NAME == "master" ? null : BRANCH_NAME,
             env.BUILD_NUMBER
 					)
