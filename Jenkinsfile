@@ -66,7 +66,7 @@ pipeline {
 		}
 
 		stage ('Tag') {
-			when { BRANCH_NAME == 'master' }
+			when { branch 'master' }
 
 			steps {
 				publishGithubRelease(
