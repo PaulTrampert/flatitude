@@ -1,7 +1,12 @@
 def releaseInfo
 
 pipeline {
-  agent any;
+  agent {
+		docker {
+			image 'paultrampert/node-chrome-firefox'
+			args "-e HOME=$HOME"
+		}
+	};
 
   options {
     buildDiscarder(logRotator(numToKeepStr:'5'))
