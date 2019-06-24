@@ -61,14 +61,21 @@ pipeline {
 				withCredentials([string(credentialsId: 'npmrc', variable: 'NPMRC')]) {
 					writeFile file: ".npmrc", text: NPMRC
 					sh 'npm publish'
-					publishGithubRelease(
-						'PaulTrampert',
-						'flatitude',
-						releaseInfo,
-						'v',
-						'Github User/Pass'
-					)
 				}
+			}
+		}
+
+		stage ('Tag') {
+			when { BRANCH_NAME == 'master' }
+
+			steps {
+				publishGithubRelease(
+					'PaulTrampert',
+					'flatitude',
+					releaseInfo,
+					'v',
+					'Github User/Pass'
+				)
 			}
 		}
   }
