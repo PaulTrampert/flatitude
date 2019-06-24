@@ -14,17 +14,15 @@ pipeline {
 
   stages {
 		stage('Build Release Info') {
-			when {
-				expression {env.BRANCH_NAME == 'master'}
-			}
-
 			steps {
 				script{
 					releaseInfo = generateGithubReleaseInfo(
 						'PaulTrampert',
 						'flatitude',
 						'v',
-						'Github User/Pass'
+						'Github User/Pass',
+            BRANCH_NAME == "master" ? null : BRANCH_NAME,
+            env.BUILD_NUMBER
 					)
 
 					echo releaseInfo.nextVersion().toString()
@@ -52,10 +50,6 @@ pipeline {
     }
 
 		stage('Publish') {
-			when {
-				expression {env.BRANCH_NAME == 'master'}
-			}
-
 			steps {
 				script {
 					def packageJson = readJSON file: 'package.json'
