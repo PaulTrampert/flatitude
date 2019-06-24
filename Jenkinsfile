@@ -1,7 +1,13 @@
+@Library('github-release-helpers@v0.2.1')
 def releaseInfo
 
 pipeline {
-  agent any;
+  agent {
+		docker {
+			image 'paultrampert/node-chrome-firefox'
+			args "-e HOME=$HOME"
+		}
+	};
 
   options {
     buildDiscarder(logRotator(numToKeepStr:'5'))
@@ -9,17 +15,16 @@ pipeline {
 
   stages {
 		stage('Build Release Info') {
-			when {
-				expression {env.BRANCH_NAME == 'master'}
-			}
-
 			steps {
 				script{
 					releaseInfo = generateGithubReleaseInfo(
 						'PaulTrampert',
 						'flatitude',
 						'v',
-						'Github User/Pass'
+						'Github User/Pass',
+            'https://api.github.com',
+            BRANCH_NAME == "master" ? null : BRANCH_NAME,
+            env.BUILD_NUMBER
 					)
 
 					echo releaseInfo.nextVersion().toString()
@@ -47,24 +52,23 @@ pipeline {
     }
 
 		stage('Publish') {
-			when {
-				expression {env.BRANCH_NAME == 'master'}
-			}
-
 			steps {
 				script {
 					def packageJson = readJSON file: 'package.json'
 					packageJson.version = releaseInfo.nextVersion().toString()
 					writeJSON file: 'package.json', json: packageJson, pretty: 2
 				}
-				sh 'npm publish'
-				publishGithubRelease(
-					'PaulTrampert',
-					'flatitude',
-					releaseInfo,
-					'v',
-					'Github User/Pass'
-				)
+				withCredentials([string(credentialsId: 'npmrc', variable: 'NPMRC')]) {
+					writeFile file: ".npmrc", text: NPMRC
+					sh 'npm publish'
+					publishGithubRelease(
+						'PaulTrampert',
+						'flatitude',
+						releaseInfo,
+						'v',
+						'Github User/Pass'
+					)
+				}
 			}
 		}
   }
