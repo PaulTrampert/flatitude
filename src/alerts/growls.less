@@ -4,17 +4,17 @@
 }
 
 @keyframes growl-fadeout {
-  0% { 
-    opacity: 1; 
+  0% {
+    opacity: 1;
     height: initial;
   }
-  50% { 
-    opacity: 0; 
-    height: initial;
-  }
-  100% { 
+  50% {
     opacity: 0;
-    height: 0; 
+    height: initial;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
   }
 }
 
@@ -46,9 +46,10 @@
         color: @grey-9;
         padding: 0;
         margin: 0;
+        .fa-icon;
+        .fas;
 
         &::before {
-          .fa-icon();
           content: @fa-var-times;
         }
       }
@@ -68,8 +69,9 @@
     &.success {
       .icon {
         background-color: @success;
+        .fa-icon;
+        .fas;
         &::before {
-          .fa-icon();
           content: @fa-var-check;
         }
       }
@@ -79,10 +81,11 @@
     &.danger {
       .icon {
         background-color: @danger;
+        .fa-icon;
+        .fas;
 
         &::before {
-          .fa-icon();
-          content: @fa-var-times-circle-o;
+          content: @fa-var-times-circle;
         }
       }
       border: 1px solid @danger;
@@ -92,8 +95,9 @@
       .icon {
         background-color: @warning;
         color: @grey-e;
+        .fa-icon;
+        .fas;
         &::before {
-          .fa-icon();
           content: @fa-var-exclamation-circle;
         }
       }
@@ -104,8 +108,9 @@
     &.info {
       .icon {
         background-color: @info;
+        .fa-icon;
+        .fas;
         &::before {
-          .fa-icon();
           content: @fa-var-info-circle;
         }
       }

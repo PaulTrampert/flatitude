@@ -22,20 +22,21 @@ label.checkbox {
     +i {
       margin-right: 5px;
       width: 14px;
+      .fa-icon;
+      .far;
     }
     +i::before {
-      .fa-icon();
-      content: @fa-var-square-o;
+      content: @fa-var-square;
       color: @primary;
     }
 
     &:checked+i::before {
-      content: @fa-var-check-square-o;
+      content: @fa-var-check-square;
       color: @primary;
     }
 
     &:indeterminate+i::before {
-      content: @fa-var-minus-square-o;
+      content: @fa-var-minus-square;
       color: @primary;
     }
 
@@ -52,5 +53,5 @@ label.checkbox {
     }
   }
 
-  
+
 }
