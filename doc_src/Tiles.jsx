@@ -41,14 +41,14 @@ class Tiles extends React.Component {
         <div className="tile-list">
           {
             data.map(d => (
-              <Tile 
+              <Tile
                 key={d.body}
                 onClick={() => alert(`${d.body} clicked`)}
                 onSelect={isSelected => this.selectTile(d, isSelected)}
                 actions={[
-                  <a>View</a>,
-                  <a>Modify</a>,
-                  <a>Delete</a>
+                  <a key="view">View</a>,
+                  <a key="modify">Modify</a>,
+                  <a key="delete">Delete</a>
                 ]}
               >
                 {d.body}
