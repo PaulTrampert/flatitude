@@ -27,7 +27,7 @@ describe('Modal', () => {
   it('renders passthrough props on the modal', () => {
     subject = shallow(<Modal prop1="herp" prop2="derp" />);
 
-    expect(subject.find('.modal').props()).toEqual(jasmine.objectContaining({
+    expect(subject.find('.modal').props()).toEqual(expect.objectContaining({
       prop1: 'herp',
       prop2: 'derp'
     }));
