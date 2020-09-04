@@ -2,8 +2,8 @@
   "env": {
     "browser": true,
     "es6": true,
-    "jasmine": true,
-    "commonjs": true
+    "commonjs": true,
+    "jest": true
   },
   "settings": {
     "react": {

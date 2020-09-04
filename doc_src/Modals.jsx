@@ -12,7 +12,7 @@ class Modals extends React.Component {
   }
 
   toggleModal = () => {
-    this.setState({showModal: !this.state.showModal})
+    this.setState({showModal: !this.state.showModal});
   }
 
   render() {
