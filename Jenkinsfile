@@ -4,7 +4,7 @@ def releaseInfo
 pipeline {
   agent {
 		docker {
-			image 'paultrampert/node-chrome-firefox'
+			image 'node:lts'
 			args "-e HOME=$HOME"
 		}
 	};
