@@ -1,27 +1,21 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import SearchBoxLoader from 'inject-loader!./SearchBox.jsx';
+import SearchBox from './SearchBox.jsx';
+import window from '../util/window.js';
+jest.mock('../util/window.js', () => ({}));
 
 describe('SearchBox', () => {
-  let SearchBox;
-  let window;
   let props;
 
   beforeEach(() => {
     props = {
-      onChange: jasmine.createSpy('onChange'),
-      onSearch: jasmine.createSpy('onSearch'),
+      onChange: jest.fn(),
+      onSearch: jest.fn(),
       value: 'derp'
     };
 
-    window = {
-      setTimeout: jasmine.createSpy('setTimeout').and.returnValue({}),
-      clearTimeout: jasmine.createSpy('clearTimeout')
-    };
-
-    SearchBox = SearchBoxLoader({
-      '../util/window.js': window
-    }).default;
+    window.setTimeout = jest.fn().mockReturnValue({});
+    window.clearTimeout = jest.fn();
   });
 
   describe("handleSearch", () => {
@@ -38,7 +32,9 @@ describe('SearchBox', () => {
 
     describe("when an event is passed in", () => {
       it("calls preventDefault on the event", () => {
-        let event = jasmine.createSpyObj(['preventDefault']);
+        let event = {
+          preventDefault: jest.fn()
+        };
         subject.instance().handleSearch(event);
         expect(event.preventDefault).toHaveBeenCalled();
       });

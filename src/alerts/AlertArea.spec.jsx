@@ -1,20 +1,15 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import AlertAreaLoader from 'inject-loader!./AlertArea.jsx';
+import AlertArea from './AlertArea.jsx';
+import alerter from './alerter.js';
+jest.mock('./alerter.js');
 
-describe('AlertArea', () => {
-  let AlertArea;
-  let alerter;
+fdescribe('AlertArea', () => {
   let unsub;
 
   beforeEach(() => {
-    unsub = jasmine.createSpy('unsub');
-    alerter = jasmine.createSpyObj('alerter', ['subscribe']);
-    alerter.subscribe.and.returnValue(unsub);
-
-    AlertArea = AlertAreaLoader({
-      './alerter.js': alerter
-    }).default;
+    unsub = jest.fn();
+    alerter.subscribe.mockReturnValue(unsub);
   });
 
   describe('componentDidMount', () => {

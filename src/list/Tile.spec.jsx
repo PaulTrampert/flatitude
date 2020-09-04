@@ -47,7 +47,7 @@ describe("Tile", () => {
 
   describe('when onSelect is set', () => {
     beforeEach(() => {
-      props.onSelect = jasmine.createSpy('onSelect');
+      props.onSelect = jest.fn();
       props.isSelected = true;
     });
 

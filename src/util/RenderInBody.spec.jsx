@@ -1,28 +1,21 @@
-import RenderInBodyLoader from 'inject-loader!./RenderInBody.jsx';
+import RenderInBody from './RenderInBody.jsx';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {shallow} from 'enzyme';
+import document from './document.js';
+jest.mock('react-dom');
+jest.mock('./document.js', () => ({}));
 
 describe('RenderInBody', () => {
   let subject;
-  let RenderInBody;
-  let document;
-  let ReactDOM;
 
   beforeEach(() => {
-    document = {
-      createElement: jasmine.createSpy('createElement').and.returnValue('element'),
-      body: {
-        appendChild: jasmine.createSpy('appendChild'),
-        removeChild: jasmine.createSpy('removeChild')
-      }
+    document.createElement = jest.fn().mockReturnValue('element'),
+    document.body = {
+      appendChild: jest.fn(),
+      removeChild: jest.fn()
     };
 
-    ReactDOM = jasmine.createSpyObj('ReactDOM', ['render', 'unmountComponentAtNode']);
-
-    RenderInBody = RenderInBodyLoader({
-      'react-dom': ReactDOM,
-      './document.js': document
-    }).default;
     subject = shallow(<RenderInBody><div className="test-div"></div></RenderInBody>, {disableLifecycleMethods: true});
   });
 

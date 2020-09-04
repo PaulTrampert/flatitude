@@ -65,7 +65,7 @@ describe('Th', () => {
       let instance;
 
       beforeEach(() => {
-        props.onSort = jasmine.createSpy();
+        props.onSort = jest.fn();
         props.name = 'derp';
         subject = shallow(<Th {...props}></Th>);
         instance = subject.instance();
@@ -77,7 +77,7 @@ describe('Th', () => {
           expect(props.onSort).toHaveBeenCalledWith('asc', 'derp');
         });
       });
-      
+
       describe('when the current sort direction is asc', () => {
         it('calls onSort with desc', () => {
           subject.setProps({sortDirection: 'asc'});

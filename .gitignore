@@ -3,3 +3,4 @@ dist/
 doc/
 docs/
 testReports/
+junit.xml
