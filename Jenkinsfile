@@ -112,7 +112,7 @@ pipeline {
 							$class: 'JUnitType',
 							deleteOutputFiles: true,
 							failIfNotNew: true,
-							pattern: 'testReports/**/*',
+							pattern: 'junit.xml',
 							skipNoTestFiles: false,
 							stopProcessingIfError: true
 						]

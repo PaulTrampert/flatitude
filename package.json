@@ -14,7 +14,7 @@
     "build-watch": "cross-env NODE_ENV=production webpack --watch",
     "build-docs": "webpack --config webpack.demo.config.js",
     "test": "jest --watch",
-    "test-ci": "karma start --single-run --reporters junit"
+    "test-ci": "jest --ci --reporters=default --reporters=jest-junit"
   },
   "keywords": [
     "styles"
@@ -46,6 +46,7 @@
     "inject-loader": "^4.0.1",
     "is-docker": "^2.1.1",
     "jest": "^26.4.2",
+    "jest-junit": "^11.1.0",
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
     "mini-css-extract-plugin": "^0.11.0",
