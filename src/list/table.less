@@ -19,17 +19,20 @@ table {
   }
 
   th.sortable {
+
     &:hover {
       cursor: pointer;
     }
 
     &.asc::after {
-      .fa-icon();
+      .fa-icon;
+      .fas;
       content: "\00a0"@fa-var-chevron-down;
     }
 
     &.desc::after {
-      .fa-icon();
+      .fa-icon;
+      .fas;
       content: "\00a0"@fa-var-chevron-up;
     }
   }

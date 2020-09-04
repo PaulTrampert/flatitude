@@ -52,7 +52,6 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        include: SRC_DIR,
         use: [
           PROD ? MiniCssExtractPlugin.loader : 'style-loader',
           {
