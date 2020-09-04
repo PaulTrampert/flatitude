@@ -9,7 +9,7 @@ describe('RadioButton', () => {
   beforeEach(() => {
     props = {
       value: 'somevalue',
-      onChange: jasmine.createSpy('onChange'),
+      onChange: jest.fn(),
       disabled: true,
       selected: true
     };

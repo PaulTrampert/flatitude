@@ -3,7 +3,7 @@ import {shallow} from 'enzyme';
 import Nav from './Nav.jsx';
 
 describe('Nav', () => {
-  
+
   it('adds the collapsed class to nav when collapsed', () => {
     let subject = shallow(<Nav collapsed className="some-class"></Nav>);
 
@@ -12,7 +12,7 @@ describe('Nav', () => {
 
   it("doesn't add the collapsed class when not collapsed", () => {
     let subject = shallow(<Nav className="some-class"></Nav>);
-    
+
     expect(subject.find('nav').props().className).toEqual('some-class');
   });
 
@@ -22,8 +22,8 @@ describe('Nav', () => {
     let requestCollapseHandler;
 
     beforeEach(() => {
-      linkOnClick = jasmine.createSpy('linkOnClick');
-      requestCollapseHandler = jasmine.createSpy('requestCollapseHandler');
+      linkOnClick = jest.fn();
+      requestCollapseHandler = jest.fn();
       subject = shallow(
         <Nav onRequestCollapse={requestCollapseHandler}>
           <a onClick={linkOnClick}>Some Link</a>

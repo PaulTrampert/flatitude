@@ -4,7 +4,7 @@ def releaseInfo
 pipeline {
   agent {
 		docker {
-			image 'paultrampert/node-chrome-firefox'
+			image 'node:lts'
 			args "-e HOME=$HOME"
 		}
 	};
@@ -112,7 +112,7 @@ pipeline {
 							$class: 'JUnitType',
 							deleteOutputFiles: true,
 							failIfNotNew: true,
-							pattern: 'testReports/**/*',
+							pattern: 'junit.xml',
 							skipNoTestFiles: false,
 							stopProcessingIfError: true
 						]

@@ -9,7 +9,7 @@ describe('Checkbox', () => {
   beforeEach(() => {
     props = {
       value: true,
-      onChange: jasmine.createSpy('onChange'),
+      onChange: jest.fn(),
       disabled: true,
       indeterminate: true
     };

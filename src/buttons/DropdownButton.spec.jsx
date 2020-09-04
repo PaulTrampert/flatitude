@@ -1,32 +1,24 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import RenderInBody from '../util/RenderInBody.jsx';
-import DropdownButtonLoader from 'inject-loader!./DropdownButton.jsx';
+import DropdownButton from './DropdownButton.jsx';
+import document from '../util/document.js';
+import ReactDOM from 'react-dom';
+jest.mock('react-dom');
+jest.mock('../util/document.js', () => ({}));
 
 describe('DropdownButtonLoader', () => {
-  let DropdownButton;
-  let document;
   let buttonElement;
-  let ReactDOM;
 
   beforeEach(() => {
-    document = {
-      addEventListener: jasmine.createSpy('addEventListener'),
-      removeEventListener: jasmine.createSpy('removeEventListener')
-    };
+    document.addEventListener = jest.fn();
+    document.removeEventListener = jest.fn();
 
     buttonElement = {
-      getBoundingClientRect: jasmine.createSpy('getBoundingClientRect').and.returnValue({bottom: 4, right: 5})
+      getBoundingClientRect: jest.fn().mockReturnValue({bottom: 4, right: 5})
     };
 
-    ReactDOM = {
-      findDOMNode: jasmine.createSpy('findDOMNode').and.returnValue(buttonElement)
-    };
-
-    DropdownButton = DropdownButtonLoader({
-      '../util/document.js': document,
-      'react-dom': ReactDOM
-    }).default;
+    ReactDOM.findDOMNode.mockReturnValue(buttonElement);
   });
 
   describe('render', () => {
@@ -34,7 +26,7 @@ describe('DropdownButtonLoader', () => {
     beforeEach(() => {
       subject = shallow(<DropdownButton title="herp" className="derp" type="primary" random="random">derp</DropdownButton>, {disableLifecycleMethods: true});
     });
-  
+
     it('renders a button with the correct classes', () => {
       expect(subject.at(0).props().className).toBe('derp primary');
     });
@@ -42,11 +34,11 @@ describe('DropdownButtonLoader', () => {
     it('renders the correct type of button', () => {
       expect(subject.at(0).props().type).toBe('button');
     });
-  
+
     it('adds arbitrary properties to the button', () => {
       expect(subject.at(0).props().random).toBe('random');
     });
-  
+
     it('renders the title', () => {
       expect(subject.childAt(0).text()).toBe('herp');
     });

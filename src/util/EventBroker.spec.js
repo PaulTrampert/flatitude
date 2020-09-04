@@ -21,8 +21,8 @@ describe('EventBroker', () => {
 
     beforeEach(() => {
       subject = new EventBroker();
-      handler1 = jasmine.createSpy('handler1');
-      handler2 = jasmine.createSpy('handler2');
+      handler1 = jest.fn();
+      handler2 = jest.fn();
       subject.subscribe(handler1);
       subject.subscribe(handler2);
       event = {
@@ -45,7 +45,7 @@ describe('EventBroker', () => {
 
     beforeEach(() => {
       subject = new EventBroker();
-      handler = jasmine.createSpy('handler');
+      handler = jest.fn();
     });
 
     it('adds the handler to subscribers', () => {

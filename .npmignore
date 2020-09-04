@@ -4,3 +4,4 @@ testReports/
 Jenkinsfile
 webpack.demo.config.js
 .npmrc
+junit.xml
