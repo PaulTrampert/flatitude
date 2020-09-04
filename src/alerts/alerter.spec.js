@@ -8,12 +8,18 @@ describe('Alerter', () => {
   let subject;
 
   beforeEach(() => {
-    alertEventsUnsub = jasmine.createSpy('alertEventUnsub');
-    dismissEventsUnsub = jasmine.createSpy('dismissEventsUnsub');
-    alertEvents = jasmine.createSpyObj('events', ['publish', 'subscribe']);
-    alertEvents.subscribe.and.returnValue(alertEventsUnsub);
-    dismissEvents = jasmine.createSpyObj('events', ['publish', 'subscribe']);
-    dismissEvents.subscribe.and.returnValue(dismissEventsUnsub);
+    alertEventsUnsub = jest.fn();
+    dismissEventsUnsub = jest.fn();
+    alertEvents = {
+      'publish': jest.fn(),
+      'subscribe': jest.fn()
+    };
+    alertEvents.subscribe.mockReturnValue(alertEventsUnsub);
+    dismissEvents = {
+      'publish': jest.fn(),
+      'subscribe': jest.fn()
+    };
+    dismissEvents.subscribe.mockReturnValue(dismissEventsUnsub);
     subject = new Alerter(alertEvents, dismissEvents);
   });
 
@@ -75,7 +81,7 @@ describe('Alerter', () => {
     });
 
     it('returns an unsubscribe function', () => {
-      expect(unsubscribe).toEqual(jasmine.any(Function));
+      expect(unsubscribe).toEqual(expect.any(Function));
     });
 
     describe('the unsubscribe function', () => {
