@@ -1,6 +1,7 @@
 doc/
 doc_src/
 testReports/
+coverage/
 Jenkinsfile
 webpack.demo.config.js
 .npmrc

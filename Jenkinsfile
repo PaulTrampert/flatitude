@@ -86,6 +86,7 @@ pipeline {
     }
     always {
       archiveArtifacts artifacts: '**/*', excludes: 'node_modules/**/*, doc_src/**/*, doc/**/*, testReports/**/*'
+			cobertura coberturaReportFile: 'coverage/*.xml'
       step(
 				[
 					$class: 'XUnitBuilder',
