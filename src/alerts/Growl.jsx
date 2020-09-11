@@ -18,11 +18,11 @@ class Growl extends React.Component {
       durationMs,
     } = this.props;
     this.timer = window.setTimeout(this.handleExpire, durationMs);
-    this.ref.addEventListener('animationend', this.onFadeoutEnd);
+    this.ref && this.ref.addEventListener('animationend', this.onFadeoutEnd);
   }
 
   componentWillUnmount = () => {
-    this.ref.removeEventListener('animationend', this.onFadeoutEnd);
+    this.ref && this.ref.removeEventListener('animationend', this.onFadeoutEnd);
   }
 
   onFadeoutEnd = (event) => {
@@ -32,6 +32,7 @@ class Growl extends React.Component {
   }
 
   handleExpire = () => {
+    delete this.timer;
     this.setState({expiring: true});
   }
 
@@ -39,12 +40,20 @@ class Growl extends React.Component {
     this.ref = ref;
   }
 
-  render() {
+  handleDismiss = () => {
     let {
       id,
+      onDismiss
+    } = this.props;
+    this.timer && window.clearTimeout(this.timer);
+    delete this.timer;
+    onDismiss(id);
+  }
+
+  render() {
+    let {
       children,
       type,
-      onDismiss
     } = this.props;
     let {
       expiring
@@ -57,7 +66,7 @@ class Growl extends React.Component {
           {children}
         </div>
         <div className="dismiss">
-          <button onClick={() => onDismiss(id)}>
+          <button onClick={this.handleDismiss}>
           </button>
         </div>
       </div>

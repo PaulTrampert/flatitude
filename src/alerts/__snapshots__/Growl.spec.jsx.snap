@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Growl render renders a danger growl 1`] = `
+<div
+  className="growl danger"
+>
+  <div
+    className="icon"
+  />
+  <div
+    className="message"
+  >
+    hi there!
+  </div>
+  <div
+    className="dismiss"
+  >
+    <button
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`Growl render renders a primary growl 1`] = `
+<div
+  className="growl primary"
+>
+  <div
+    className="icon"
+  />
+  <div
+    className="message"
+  >
+    hi there!
+  </div>
+  <div
+    className="dismiss"
+  >
+    <button
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`Growl render renders a success growl 1`] = `
+<div
+  className="growl success"
+>
+  <div
+    className="icon"
+  />
+  <div
+    className="message"
+  >
+    hi there!
+  </div>
+  <div
+    className="dismiss"
+  >
+    <button
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`Growl render renders a warning growl 1`] = `
+<div
+  className="growl warning"
+>
+  <div
+    className="icon"
+  />
+  <div
+    className="message"
+  >
+    hi there!
+  </div>
+  <div
+    className="dismiss"
+  >
+    <button
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`Growl render renders an expiring growl 1`] = `
+<div
+  className="growl info expiring"
+>
+  <div
+    className="icon"
+  />
+  <div
+    className="message"
+  >
+    hi there!
+  </div>
+  <div
+    className="dismiss"
+  >
+    <button
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`Growl render renders an info growl 1`] = `
+<div
+  className="growl info"
+>
+  <div
+    className="icon"
+  />
+  <div
+    className="message"
+  >
+    hi there!
+  </div>
+  <div
+    className="dismiss"
+  >
+    <button
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;

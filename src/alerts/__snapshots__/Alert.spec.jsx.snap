@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert render renders danger style 1`] = `
+<div
+  className="alert danger"
+>
+  <div
+    className="icon"
+  >
+    <i
+      className="fa fa-exclamation-triangle"
+    />
+  </div>
+  <div
+    className="message"
+  >
+    hi
+  </div>
+</div>
+`;
+
+exports[`Alert render renders info style 1`] = `
+<div
+  className="alert info"
+>
+  <div
+    className="icon"
+  >
+    <i
+      className="fa fa-info-circle"
+    />
+  </div>
+  <div
+    className="message"
+  >
+    hi
+  </div>
+</div>
+`;
+
+exports[`Alert render renders primary style 1`] = `
+<div
+  className="alert success"
+>
+  <div
+    className="icon"
+  >
+    <i
+      className="fa fa-check-circle"
+    />
+  </div>
+  <div
+    className="message"
+  >
+    hi
+  </div>
+</div>
+`;
+
+exports[`Alert render renders success style 1`] = `
+<div
+  className="alert success"
+>
+  <div
+    className="icon"
+  >
+    <i
+      className="fa fa-check-circle"
+    />
+  </div>
+  <div
+    className="message"
+  >
+    hi
+  </div>
+</div>
+`;
+
+exports[`Alert render renders warning style 1`] = `
+<div
+  className="alert warning"
+>
+  <div
+    className="icon"
+  >
+    <i
+      className="fa fa-exclamation-triangle"
+    />
+  </div>
+  <div
+    className="message"
+  >
+    hi
+  </div>
+</div>
+`;
+
+exports[`Alert render when actions are passed in renders the action links 1`] = `
+<div
+  className="alert info"
+>
+  <div
+    className="icon"
+  >
+    <i
+      className="fa fa-info-circle"
+    />
+  </div>
+  <div
+    className="message"
+  >
+    hi
+  </div>
+  <AlertAction
+    key="0"
+    label="herp"
+    onClick={[MockFunction]}
+  />
+  <AlertAction
+    key="1"
+    label="derp"
+    onClick={[MockFunction]}
+  />
+</div>
+`;
