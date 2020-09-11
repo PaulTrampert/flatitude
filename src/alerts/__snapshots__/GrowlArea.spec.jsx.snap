@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GrowlArea render when there are growls renders the growls in the growl area 1`] = `
+<RenderInBody>
+  <div
+    className="growl-area"
+  >
+    <Growl
+      durationMs={10000}
+      id={1}
+      key="1"
+      onDismiss={[Function]}
+      onExpire={[Function]}
+      type="info"
+    >
+      herp
+    </Growl>
+    <Growl
+      durationMs={10000}
+      id={2}
+      key="2"
+      onDismiss={[Function]}
+      onExpire={[Function]}
+      type="danger"
+    >
+      derp
+    </Growl>
+  </div>
+</RenderInBody>
+`;
+
+exports[`GrowlArea render when there are no growls renders an empty growl area in the body 1`] = `
+<RenderInBody>
+  <div
+    className="growl-area"
+  />
+</RenderInBody>
+`;

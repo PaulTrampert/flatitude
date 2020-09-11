@@ -21,10 +21,12 @@ class GrowlArea extends React.Component {
   }
 
   showGrowl = (growl) => {
-    let growls = this.state.growls.slice();
-    growls.push(growl);
+    const {growls} = this.state;
     this.setState({
-      growls
+      growls: [
+        ...growls,
+        growl
+      ]
     });
   }
 
