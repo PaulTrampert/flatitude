@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlertAction render renders the link 1`] = `
+<a
+  className="action"
+  onClick={[Function]}
+>
+  herp
+</a>
+`;

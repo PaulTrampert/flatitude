@@ -6,6 +6,9 @@ const test = {
     "\\.(css|less)$": "<rootDir>/src/__mocks__/styleMock.js"
   },
   setupFiles: ["./src/setupTests.js"],
+  snapshotSerializers: [
+    "enzyme-to-json/serializer"
+  ]
 };
 
 const lint = {
